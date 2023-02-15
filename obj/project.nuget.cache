@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XP7JdLPTwDNevQtd1Qvm3XGrx6iiQ43+I+xELbWLoFYMD8CHp+xlJ4QXERjJgBOgcZ5fe9r6U4S2w5UZ/c/aOw==",
+  "dgSpecHash": "fIfPTEA5B/auwBTcXwa+YlSNvMpVFIYbzC0U7c5PhDXU/6jsynvEdvqYd+vypOadCFeZZoEBxIo9D+udAT7T2Q==",
   "success": true,
-  "projectFilePath": "e:\\UoG\\1670-Application Development\\FPTBook\\FPTBook.csproj",
+  "projectFilePath": "E:\\UoG\\1670-Application Development\\FPTBook\\FPTBook.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\luong\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\luong\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
