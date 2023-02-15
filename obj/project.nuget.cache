@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "q412HLBM2UD5gtfmEbGUGGCsW3yUrgIBDRo3Qq72yHuZ3iB8NUcrMeC9zUJH5GAF1n5KJz1GAV7T4h+DYx5acQ==",
+  "dgSpecHash": "XP7JdLPTwDNevQtd1Qvm3XGrx6iiQ43+I+xELbWLoFYMD8CHp+xlJ4QXERjJgBOgcZ5fe9r6U4S2w5UZ/c/aOw==",
   "success": true,
-  "projectFilePath": "E:\\UoG\\1670-Application Development\\Project\\FPTBook\\FPTBook.csproj",
+  "projectFilePath": "e:\\UoG\\1670-Application Development\\FPTBook\\FPTBook.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\luong\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\luong\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
@@ -176,10 +176,10 @@
     "C:\\Users\\luong\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\luong\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\luong\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\luong\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.13\\microsoft.aspnetcore.app.ref.6.0.13.nupkg.sha512",
-    "C:\\Users\\luong\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.13\\microsoft.netcore.app.host.win-x64.6.0.13.nupkg.sha512",
     "C:\\Users\\luong\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.13\\microsoft.netcore.app.ref.6.0.13.nupkg.sha512",
-    "C:\\Users\\luong\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.13\\microsoft.windowsdesktop.app.ref.6.0.13.nupkg.sha512"
+    "C:\\Users\\luong\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.13\\microsoft.windowsdesktop.app.ref.6.0.13.nupkg.sha512",
+    "C:\\Users\\luong\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.13\\microsoft.aspnetcore.app.ref.6.0.13.nupkg.sha512",
+    "C:\\Users\\luong\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.13\\microsoft.netcore.app.host.win-x64.6.0.13.nupkg.sha512"
   ],
   "logs": []
 }
