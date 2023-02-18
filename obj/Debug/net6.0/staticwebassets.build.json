@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PqdJv+mKAeHtoOqvaauEUyisYjB9L0O8R0UweeUUmho=",
+  "Hash": "cPbLCN/Bhn8R6i2W4wQNFIwQo7FyxNu4BAgSH8u5L6E=",
   "Source": "FPTBook",
   "BasePath": "_content/FPTBook",
   "Mode": "Default",
@@ -119,40 +119,6 @@
       "OriginalItemSpec": "wwwroot\\css\\main.css"
     },
     {
-      "Identity": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\css\\prettyPhoto.css",
-      "SourceId": "FPTBook",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\",
-      "BasePath": "_content/FPTBook",
-      "RelativePath": "css/prettyPhoto.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\prettyPhoto.css"
-    },
-    {
-      "Identity": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\css\\price-range.css",
-      "SourceId": "FPTBook",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\",
-      "BasePath": "_content/FPTBook",
-      "RelativePath": "css/price-range.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\price-range.css"
-    },
-    {
       "Identity": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\css\\responsive.css",
       "SourceId": "FPTBook",
       "SourceType": "Discovered",
@@ -185,6 +151,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\css\\style.css",
+      "SourceId": "FPTBook",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\",
+      "BasePath": "_content/FPTBook",
+      "RelativePath": "css/style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\style.css"
     },
     {
       "Identity": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\favicon.ico",

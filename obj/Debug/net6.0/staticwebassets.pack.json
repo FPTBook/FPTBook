@@ -21,20 +21,16 @@
       "PackagePath": "staticwebassets\\css\\main.css"
     },
     {
-      "Id": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\css\\prettyPhoto.css",
-      "PackagePath": "staticwebassets\\css\\prettyPhoto.css"
-    },
-    {
-      "Id": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\css\\price-range.css",
-      "PackagePath": "staticwebassets\\css\\price-range.css"
-    },
-    {
       "Id": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\css\\responsive.css",
       "PackagePath": "staticwebassets\\css\\responsive.css"
     },
     {
       "Id": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
       "Id": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\favicon.ico",
