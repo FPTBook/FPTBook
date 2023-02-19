@@ -25,16 +25,16 @@
       "PackagePath": "staticwebassets\\css\\responsive.css"
     },
     {
-      "Id": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\css\\site.css",
-      "PackagePath": "staticwebassets\\css\\site.css"
-    },
-    {
       "Id": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\css\\style.css",
       "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
       "Id": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\img\\logo.jpg",
+      "PackagePath": "staticwebassets\\img\\logo.jpg"
     },
     {
       "Id": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\js\\site.js",

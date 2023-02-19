@@ -1,5 +1,7 @@
 using FPTBook.Models;
 using FPTBook.DB;
+using FPTBook.Repositories.Abstract;
+using FPTBook.Repositories.Implementation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,7 +12,10 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 // For identity
 builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
+
 builder.Services.ConfigureApplicationCookie(option => option.LoginPath = "/UserAuthentication/Login");
+
+builder.Services.AddScoped<IUserAuthenticationService, UserAuthenticationService>();
 
 var app = builder.Build();
 
@@ -32,5 +37,10 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+// app.MapControllerRoute(
+//     name: "default",
+//     pattern: "{controller=UserAuthentication}/{action=Login}/{id?}");
+// app.MapRazorPages();
 
 app.Run();

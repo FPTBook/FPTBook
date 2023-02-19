@@ -1,0 +1,22 @@
+﻿<ul class="nav navbar-nav" style="flex-direction: unset">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" title="Manage"><i class="fa fa-lock"></i>Hello @User.Identity?.Name!</a>
+        </li>
+        
+        <li><a asp-controller="UserAuthentication" asp-action="Logout" style="color:#000000">
+                <i class="fa fa-crosshairs"></i>Log Out</a></li>
+    }
+    else
+    {
+        <li><a asp-controller="UserAuthentication" asp-action="Login" style="color:#000000">
+                <i class="fa fa-lock"></i>Login</a></li>
+        <li><a asp-controller="UserAuthentication" asp-action="Registration" style="color:#000000">
+                <i class="fa fa-star"></i>Register</a></li>
+    }
+</ul>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
