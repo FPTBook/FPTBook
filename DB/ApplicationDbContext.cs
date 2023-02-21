@@ -19,5 +19,7 @@ namespace FPTBook.DB
         public DbSet<Cart> Carts { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Category_Request> Category_Requests { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
     }
 }

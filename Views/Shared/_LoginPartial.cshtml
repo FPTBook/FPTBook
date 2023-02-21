@@ -2,9 +2,10 @@
     @if (User.Identity.IsAuthenticated)
     {
         <li class="nav-item">
-            <a class="nav-link text-dark" title="Manage"><i class="fa fa-lock"></i>Hello @User.Identity?.Name!</a>
+            <a class="nav-link text-dark" title="Manage" asp-route-username="@User.Identity.Name" asp-controller="Customer"
+            asp-action="Profile"><i class="fa fa-lock"></i>Hello, @User.Identity?.Name!</a>
         </li>
-        
+
         <li><a asp-controller="UserAuthentication" asp-action="Logout" style="color:#000000">
                 <i class="fa fa-crosshairs"></i>Log Out</a></li>
     }

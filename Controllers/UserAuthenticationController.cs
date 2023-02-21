@@ -87,5 +87,24 @@ namespace FPTBook.Controllers
         //     TempData["msg"] = result.Message;
         //     return Ok(result);
         // }
+
+        [Authorize]
+        public IActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult>ChangePassword(ChangePasswordModel model)
+        {
+            if (!ModelState.IsValid)
+              return View(model);
+            var result = await _service.ChangePasswordAsync(model, User.Identity.Name);
+            TempData["msg"] = result.Message;
+            return RedirectToAction("ChangePassword", "Customer");
+        }
+
+        
     }
 }

@@ -21,9 +21,31 @@ namespace FPTBook.Repositories.Implementation
             this.userManager = userManager;
             this.roleManager = roleManager;
         }
-        public Task<Status> ChangePasswordAsync(ChangePasswordModel model, string username)
+        public async Task<Status> ChangePasswordAsync(ChangePasswordModel model, string username)
         {
-            throw new NotImplementedException();
+            var status = new Status();
+
+            var user =  await userManager.FindByNameAsync(username);
+            if(user == null)
+            {
+                status.Message = "User does not exist";
+                status.StatusCode = 0;
+                return status;
+            }
+            
+            var result = await userManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
+            if(result.Succeeded)
+            {
+                status.Message = "Password has updated successfully!";
+                status.StatusCode = 1;
+            }
+            else
+            {
+                status.Message = "Some error occured";
+                status.StatusCode = 0;
+            }
+
+            return status;
         }
 
         public async Task<Status> LoginAsync(LoginModel model)
@@ -78,8 +100,9 @@ namespace FPTBook.Repositories.Implementation
         public async Task<Status> RegistrationAsync(RegistrationModel model)
         {
             var status = new Status();
-            var userExists = await userManager.FindByEmailAsync(model.Email);
-            if(userExists != null){
+            var userExists = await userManager.FindByNameAsync(model.Username);
+            var emailExist = await userManager.FindByEmailAsync(model.Email);
+            if(userExists != null || emailExist != null){
                 status.StatusCode = 0;
                 status.Message = "User already existed";
                 return status;

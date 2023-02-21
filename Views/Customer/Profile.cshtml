@@ -1,0 +1,51 @@
+@model FPTBook.Models.User
+
+@{
+    ViewData["Title"] = "Profile";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h1>Account</h1>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Username</th>
+                        <td>@Model.UserName</td>
+                    </tr>
+                    <tr>
+                        <th>Full Name</th>
+                        <td>@Model.full_name</td>
+                    </tr>
+                    <tr>
+                        <th>Gender</th>
+                        <td>@Model.gender</td>
+                    </tr>
+                    <tr>
+                        <th>Address</th>
+                        <td>@Model.address</td>
+                    </tr>
+                    <tr>
+                        <th>Phone</th>
+                        <td>@Model.PhoneNumber</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>@Model.Email</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <a class="btn btn-outline-primary" type="button" asp-controller="Home" asp-action="Index"  
+                role="button">Back to homepage</a>
+            <a class="btn btn-outline-info" role="button" asp-controller="UserAuthentication"
+                asp-action="ChangePassword">Change Password</a>
+            <a class="btn btn-outline-info" role="button" asp-controller="Customer" 
+            asp-action="Update" asp-route-id="@Model.Id">Change Information Account</a>
+
+        </div>
+    </div>
+</div>
