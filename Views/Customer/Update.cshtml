@@ -1,0 +1,78 @@
+@model FPTBook.Models.User
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="container">
+    <h2>Update Information Account</h2>
+    <form asp-controller="Customer" asp-action="Update" class="form-horizontal" role="form" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" disabled asp-for="Id" />
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Full Name: </label>
+            <div class="col-sm-10">
+                <input asp-for="full_name" class="form-control" />
+                <span asp-validation-for="full_name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Email: </label>
+            <div class="col-sm-10">
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Username: </label>
+            <div class="col-sm-10">
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Phone: </label>
+            <div class="col-sm-10">
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Gender: </label>
+            <div class="col-sm-10">
+                <label class="radio-inline"><input type="radio" asp-for="gender" value="Male" checked />Male</label>
+                <label class="radio-inline"><input type="radio" asp-for="gender" value="Female" />Female</label>
+                <br>
+                <span class="text-danger" asp-validation-for="gender"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Address: </label>
+            <div class="col-sm-10">
+                <input asp-for="address" class="form-control" />
+                <span asp-validation-for="address" class="text-danger"></span>
+            </div>
+        </div>
+
+        @if (TempData["msg"] != null)
+        {
+            <div class="form-group">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-10">
+                    <span class="text-success">@TempData["msg"]</span>
+                </div>
+            </div>
+        }
+        <div class="form-group">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-10">
+                <input type="submit" value="Save" asp-route-username="@Model.UserName" class="btn btn-primary" />
+                <input type="submit" value="Back" asp-route-username="@Model.UserName" asp-action="Profile" class="btn btn-primary" />
+            </div>
+        </div>
+    </form>
+</div>
+
+@section scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
