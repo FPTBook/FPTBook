@@ -18,17 +18,12 @@ namespace FPTBook.Controllers
     [Authorize]
     public class CustomerController : Controller
     {
-        // private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
         private readonly UserManager<User> userManager;
-        private readonly RoleManager<IdentityRole> roleManager;
-        public CustomerController(
-            // ApplicationDbContext context,
-            UserManager<User> userManager, RoleManager<IdentityRole> roleManager
-        )
+        public CustomerController( ApplicationDbContext context, UserManager<User> userManager)
         {
-            // this._context = context;
+            this._context = context;
             this.userManager = userManager;
-            this.roleManager = roleManager;
         }
         public IActionResult Index()
         {
@@ -37,27 +32,27 @@ namespace FPTBook.Controllers
 
         public async Task<IActionResult> Profile(string username)
         {
-            if(username == null || userManager.Users == null)
+            if (username == null || userManager.Users == null)
             {
                 return NotFound();
             }
-            var result = await userManager.Users.FirstOrDefaultAsync(u => u.UserName == username);
-            if(result == null)
+            var result = await _context.Users.Include(u => u.orders).FirstOrDefaultAsync(u => u.UserName == username);
+            if (result == null)
             {
                 return NotFound();
             }
             return View(result);
         }
-        
+
         public async Task<IActionResult> Update(string id)
         {
-            if(id == null || userManager.Users == null)
+            if (id == null || userManager.Users == null)
             {
                 return NotFound();
             }
 
             var user = await userManager.Users.FirstOrDefaultAsync(u => u.Id == id);
-            if(user == null)
+            if (user == null)
             {
                 return NotFound();
             }
@@ -69,7 +64,7 @@ namespace FPTBook.Controllers
         {
             var user = await userManager.FindByIdAsync(model.Id);
 
-            if(user == null)
+            if (user == null)
             {
                 return NotFound();
             }
@@ -86,7 +81,7 @@ namespace FPTBook.Controllers
             }
             var result = await userManager.UpdateAsync(user);
 
-            if(result.Succeeded)
+            if (result.Succeeded)
             {
                 TempData["msg"] = "Updated successfully!";
                 return RedirectToAction(nameof(Update));
@@ -94,7 +89,7 @@ namespace FPTBook.Controllers
 
             foreach (var error in result.Errors)
             {
-                ModelState.AddModelError("",error.Description);
+                ModelState.AddModelError("", error.Description);
             }
 
             return View(model);

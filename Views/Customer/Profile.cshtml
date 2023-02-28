@@ -35,17 +35,49 @@
                         <th>Email</th>
                         <td>@Model.Email</td>
                     </tr>
-
                 </tbody>
             </table>
 
-            <a class="btn btn-outline-primary" type="button" asp-controller="Home" asp-action="Index"  
-                role="button">Back to homepage</a>
-            <a class="btn btn-outline-info" role="button" asp-controller="UserAuthentication"
+            <a class="btn btn-primary" type="button" asp-controller="Home" asp-action="Index" role="button">Back</a>
+            <a class="btn btn-primary" role="button" asp-controller="Customer" asp-action="Update"
+                asp-route-id="@Model.Id">Edit</a>
+            <a class="btn btn-primary" role="button" asp-controller="UserAuthentication"
                 asp-action="ChangePassword">Change Password</a>
-            <a class="btn btn-outline-info" role="button" asp-controller="Customer" 
-            asp-action="Update" asp-route-id="@Model.Id">Change Information Account</a>
 
+        </div>
+        <div class="col-sm-6">
+            <h1>Order Records</h1>
+            <table class="table">
+                <thead>
+                    <th>Date</th>
+                    <th>Payment</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.orders)
+                    {
+                        string status = "";
+                        @if (item.status == 0)
+                        {
+                            status = "Packing";
+                        }
+                        else if (item.status == 1)
+                        {
+                            status = "Delivered";
+                        }
+                        <tr>
+                            <td>@item.order_date.ToString("dd/MM/yyyy")</td>
+                            <td>@item.payment</td>
+                            <td>@status</td>
+                            @if (item.status == 0)
+                            {
+                                <td><input type="submit" value="Cancel" class="btn btn-primary" style="margin-top: 0px;" /></td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
