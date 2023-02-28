@@ -30,7 +30,7 @@ public class HomeController : Controller
 
         return View(book);
     }
-    
+
     [HttpGet]
     public IActionResult Index(string keyword)
     {
@@ -47,4 +47,10 @@ public class HomeController : Controller
         return View(books.ToList());
     }
 
+    public IActionResult AccessDenied()
+    {
+        return View();
+    }
+
+    
 }
