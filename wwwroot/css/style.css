@@ -1,3 +1,5 @@
+
+
 .mynav_navbar {
     overflow: hidden;
     background-color: #333;
@@ -860,7 +862,7 @@ body {
     display: inline-block;
     font-size: 18px;
     padding: 7px 20px;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     border: 1px solid #5a88ca;
 }
 
@@ -970,9 +972,6 @@ ol.slide-indicators li.active {
 }
 
 
-
-
-
 .sidebar-title {
     color: #fead53;
     font-size: 25px;
@@ -998,8 +997,8 @@ input[type="button"] {
     background: none repeat scroll 0 0 #5a88ca;
     border: medium none;
     color: #fff;
-    padding: 11px 20px;
-    text-transform: uppercase;
+    /* padding: 11px 20px;
+    text-transform: uppercase; */
 }
 
 input[type="submit"]:hover,

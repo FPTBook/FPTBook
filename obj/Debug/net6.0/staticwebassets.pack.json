@@ -33,8 +33,44 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\game\\1670\\FPT Book\\FPTBook\\wwwroot\\img\\TheGiver.png",
+      "PackagePath": "staticwebassets\\img\\TheGiver.png"
+    },
+    {
+      "Id": "D:\\game\\1670\\FPT Book\\FPTBook\\wwwroot\\img\\TimenowtoDream.png",
+      "PackagePath": "staticwebassets\\img\\TimenowtoDream.png"
+    },
+    {
+      "Id": "D:\\game\\1670\\FPT Book\\FPTBook\\wwwroot\\img\\a_dog's_life.jpg",
+      "PackagePath": "staticwebassets\\img\\a_dog's_life.jpg"
+    },
+    {
+      "Id": "D:\\game\\1670\\FPT Book\\FPTBook\\wwwroot\\img\\book1.jpg",
+      "PackagePath": "staticwebassets\\img\\book1.jpg"
+    },
+    {
+      "Id": "D:\\game\\1670\\FPT Book\\FPTBook\\wwwroot\\img\\bookPrograming.png",
+      "PackagePath": "staticwebassets\\img\\bookPrograming.png"
+    },
+    {
+      "Id": "D:\\game\\1670\\FPT Book\\FPTBook\\wwwroot\\img\\br1.jpg",
+      "PackagePath": "staticwebassets\\img\\br1.jpg"
+    },
+    {
       "Id": "D:\\game\\1670\\FPT Book\\FPTBook\\wwwroot\\img\\logo.jpg",
       "PackagePath": "staticwebassets\\img\\logo.jpg"
+    },
+    {
+      "Id": "D:\\game\\1670\\FPT Book\\FPTBook\\wwwroot\\img\\refactoring_improving_the_design_of_existing_code.jpg",
+      "PackagePath": "staticwebassets\\img\\refactoring_improving_the_design_of_existing_code.jpg"
+    },
+    {
+      "Id": "D:\\game\\1670\\FPT Book\\FPTBook\\wwwroot\\img\\the_giver.jpg",
+      "PackagePath": "staticwebassets\\img\\the_giver.jpg"
+    },
+    {
+      "Id": "D:\\game\\1670\\FPT Book\\FPTBook\\wwwroot\\img\\time_now_to_dream.jpg",
+      "PackagePath": "staticwebassets\\img\\time_now_to_dream.jpg"
     },
     {
       "Id": "D:\\game\\1670\\FPT Book\\FPTBook\\wwwroot\\js\\site.js",
