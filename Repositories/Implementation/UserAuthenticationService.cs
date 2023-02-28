@@ -118,6 +118,7 @@ namespace FPTBook.Repositories.Implementation
                 address = model.Address,
                 EmailConfirmed = true,
                 PhoneNumberConfirmed = true,
+                Role = model.Role,
             };
 
             var result = await userManager.CreateAsync(user,model.Password);

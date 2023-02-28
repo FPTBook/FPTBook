@@ -102,7 +102,7 @@ namespace FPTBook.Controllers
               return View(model);
             var result = await _service.ChangePasswordAsync(model, User.Identity.Name);
             TempData["msg"] = result.Message;
-            return RedirectToAction("ChangePassword", "Customer");
+            return RedirectToAction("ChangePassword", "UserAuthentication");
         }
 
         
