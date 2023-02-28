@@ -17,7 +17,7 @@ namespace FPTBook.Models
         [ForeignKey("user_id")]
         public virtual User? user { get; set; }
         public DateTime order_date { get; set; }
-        public DateTime delivery_date { get; set; }
+        public DateTime? delivery_date { get; set; }
         public string address { get; set; }
         [DefaultValue(0), Range(0, double.MaxValue)]
         public double payment { get; set; }

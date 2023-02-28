@@ -23,6 +23,9 @@ namespace FPTBook.Models
         public string address { get; set; }
         [DefaultValue(1), Range(0,2)]
         public int status { get; set; }
+        [Required]
+        [DefaultValue("customer")]
+        public string Role { get; set; }
         public virtual ICollection<Cart>? carts { get; set; }
         public virtual ICollection<Category_Request>? cat_requests { get; set; }
         public virtual ICollection<Order>? orders { get; set; }

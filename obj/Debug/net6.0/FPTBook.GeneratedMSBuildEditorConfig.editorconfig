@@ -9,73 +9,73 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = FPTBook
 build_property.RootNamespace = FPTBook
-build_property.ProjectDir = E:\UoG\1670-Application Development\FPTBook\
+build_property.ProjectDir = D:\game\1670\FPT Book\FPTBook\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = E:\UoG\1670-Application Development\FPTBook
+build_property.MSBuildProjectDirectory = D:\game\1670\FPT Book\FPTBook
 build_property._RazorSourceGeneratorDebug = 
 
-[E:/UoG/1670-Application Development/FPTBook/Views/Admin/Index.cshtml]
+[D:/game/1670/FPT Book/FPTBook/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/UoG/1670-Application Development/FPTBook/Views/Customer/Index.cshtml]
+[D:/game/1670/FPT Book/FPTBook/Views/Customer/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/UoG/1670-Application Development/FPTBook/Views/Customer/Profile.cshtml]
+[D:/game/1670/FPT Book/FPTBook/Views/Customer/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcUHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/UoG/1670-Application Development/FPTBook/Views/Customer/Update.cshtml]
+[D:/game/1670/FPT Book/FPTBook/Views/Customer/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/UoG/1670-Application Development/FPTBook/Views/Dashboard/Display.cshtml]
+[D:/game/1670/FPT Book/FPTBook/Views/Dashboard/Display.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXERpc3BsYXkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/UoG/1670-Application Development/FPTBook/Views/Home/Index.cshtml]
+[D:/game/1670/FPT Book/FPTBook/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/UoG/1670-Application Development/FPTBook/Views/Home/Privacy.cshtml]
+[D:/game/1670/FPT Book/FPTBook/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/UoG/1670-Application Development/FPTBook/Views/Shared/Error.cshtml]
+[D:/game/1670/FPT Book/FPTBook/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/UoG/1670-Application Development/FPTBook/Views/Shared/_LoginPartial.cshtml]
+[D:/game/1670/FPT Book/FPTBook/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/UoG/1670-Application Development/FPTBook/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/game/1670/FPT Book/FPTBook/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/UoG/1670-Application Development/FPTBook/Views/UserAuthentication/ChangePassword.cshtml]
+[D:/game/1670/FPT Book/FPTBook/Views/UserAuthentication/ChangePassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckF1dGhlbnRpY2F0aW9uXENoYW5nZVBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/UoG/1670-Application Development/FPTBook/Views/UserAuthentication/Login.cshtml]
+[D:/game/1670/FPT Book/FPTBook/Views/UserAuthentication/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckF1dGhlbnRpY2F0aW9uXExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/UoG/1670-Application Development/FPTBook/Views/UserAuthentication/Registration.cshtml]
+[D:/game/1670/FPT Book/FPTBook/Views/UserAuthentication/Registration.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckF1dGhlbnRpY2F0aW9uXFJlZ2lzdHJhdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/UoG/1670-Application Development/FPTBook/Views/_ViewImports.cshtml]
+[D:/game/1670/FPT Book/FPTBook/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/UoG/1670-Application Development/FPTBook/Views/_ViewStart.cshtml]
+[D:/game/1670/FPT Book/FPTBook/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/UoG/1670-Application Development/FPTBook/Views/Shared/_Layout.cshtml]
+[D:/game/1670/FPT Book/FPTBook/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-bm79rppy57
