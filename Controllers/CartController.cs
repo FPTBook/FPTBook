@@ -30,6 +30,18 @@ namespace FPTBook.Controllers
             var cart = lstCart.Where(c => c.user_id == userId).ToList();
             return View(cart);
         }
+
+        public async Task<IActionResult> DeleteCart(int? id)
+        {
+            var cartItem = await _db.Carts.FindAsync(id);
+            if (cartItem != null)
+            {
+                _db.Carts.Remove(cartItem);
+            }
+            await _db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        
         private string GetUserId()
         {
             return Convert.ToString(HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
