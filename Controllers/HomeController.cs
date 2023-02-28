@@ -19,7 +19,7 @@ public class HomeController : Controller
         var lst = ds.Where(b => b.status == 1).ToList();
         return View(lst);
     }
-    
+
     public IActionResult Detail(int id)
     {
         var book = _db.Books.Find(id);
@@ -29,6 +29,22 @@ public class HomeController : Controller
         }
 
         return View(book);
+    }
+    
+    [HttpGet]
+    public IActionResult Index(string keyword)
+    {
+        if (_db.Books == null)
+        {
+            return NotFound();
+        }
+        var books = from b in _db.Books select b;
+        if (!String.IsNullOrEmpty(keyword))
+        {
+            books = books.Where(s => s.status == 1 && s.name!.Contains(keyword));
+        }
+
+        return View(books.ToList());
     }
 
 }
