@@ -1,0 +1,29 @@
+@model FPTBook.Models.Book
+
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="container">
+        <div class="row mt-3 mb-4">
+            <div class="col-md-4">
+                <img src="~/img/@Model.image" alt="@Model.name" class="img-fluid">
+            </div>
+            <div class="col-md-8">
+                <h1 class="mt-4 mt-md-0">@Model.name</h1>
+                <h2>$@Model.price</h2>
+                <hr>
+                <b>Description: </b>@Model.description
+                <form class="mt-4 p-4 bg-light" method="post">
+                    <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input type="number" class="form-control" asp-for="quantity" value="1">
+                    </div>
+                    <a asp-controller="Cart" asp-action="AddCart" asp-route-id="@Model.id" class="btn btn-primary">Add to Cart</a>
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+

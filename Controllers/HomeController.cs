@@ -19,5 +19,16 @@ public class HomeController : Controller
         var lst = ds.Where(b => b.status == 1).ToList();
         return View(lst);
     }
+    
+    public IActionResult Detail(int id)
+    {
+        var book = _db.Books.Find(id);
+        if (book == null)
+        {
+            return RedirectToAction("Index");
+        }
+
+        return View(book);
+    }
 
 }
