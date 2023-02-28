@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"]FPTBook</title>
+    <title>@ViewData["Title"] FPTBook</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet'
@@ -73,6 +73,7 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3"
             style="background-color:#00CCCC">
             <div class="container">
+
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">FPTBook</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -86,20 +87,31 @@
                         @if (User.IsInRole("admin") || User.IsInRole("storeowner"))
                         {
                             <li class="nav-item mynav_dropdown">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="">Management<i class="fa fa-caret-down"></i></a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="">Management<i
+                                        class="fa fa-caret-down"></i></a>
                                 <div class="mynav_dropdown-content">
-                                    <a asp-area="" asp-controller="Home" asp-action="About">About</a>
-                                    <a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+                                    @if (User.IsInRole("storeowner"))
+                                    {
+                                        <a asp-controller="StoreOwner" asp-action="ViewListBooks">Book</a>
+                                        <a asp-controller="StoreOwner" asp-action="">Category</a>
+                                        <a asp-controller="StoreOwner" asp-action="ViewListOrders">Order</a>
+                                    }
+
+                                    @if (User.IsInRole("admin"))
+                                    {
+                                        <a asp-controller="Admin" asp-action="">Account</a>
+                                    }
                                 </div>
                             </li>
                         }
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-route-id="@User.Identity.Name" asp-controller="Cart"
+                                asp-action="Index">Cart</a>
+                        </li>
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="">Cart</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-route-username="@User.Identity.Name" 
+                                <a class="nav-link text-dark" asp-route-username="@User.Identity.Name"
                                 asp-controller="Customer" asp-action="Profile">Profile</a>
                             </li>
                         }
@@ -108,6 +120,13 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="">Help</a>
                         </li>
                     </ul>
+                    <div class="navbar-nav ms-auto pull-right">
+                        <form asp-controller="Home" asp-action="Index" class="d-flex w-auto" method="GET">
+                            <input name="keyword" class="form-control me-2" type="search" placeholder="Search"
+                                aria-label="Search" required>
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -138,8 +157,10 @@
                     <div class="footer-menu">
                         <h2 class="footer-wid-title">User</h2>
                         <ul>
-                            <li><a href="#">Account</a></li>
-                            <li><a href="#">Record Orders</a></li>
+                            <li><a asp-route-username="@User.Identity.Name" asp-controller="Customer"
+                                    asp-action="Profile">Account</a></li>
+                            <li><a asp-route-username="@User.Identity.Name" asp-controller="Customer"
+                                    asp-action="Profile">Record Orders</a></li>
                             <li><a href="#">Other information</a></li>
                         </ul>
                     </div>
@@ -180,12 +201,14 @@
         </div>
     </div> <!-- End footer bottom area -->
 
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js" asp-append-version="true"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/silde.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 

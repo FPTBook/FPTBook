@@ -10425,23 +10425,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tuann\\.nuget\\packages\\": {},
+    "C:\\Users\\ASUS\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\game\\1670\\FPT Book\\FPTBook\\FPTBook.csproj",
+      "projectUniqueName": "e:\\UoG\\1670-Application Development\\FPTBook\\FPTBook.csproj",
       "projectName": "FPTBook",
-      "projectPath": "D:\\game\\1670\\FPT Book\\FPTBook\\FPTBook.csproj",
-      "packagesPath": "C:\\Users\\tuann\\.nuget\\packages\\",
-      "outputPath": "D:\\game\\1670\\FPT Book\\FPTBook\\obj\\",
+      "projectPath": "e:\\UoG\\1670-Application Development\\FPTBook\\FPTBook.csproj",
+      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+      "outputPath": "e:\\UoG\\1670-Application Development\\FPTBook\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\tuann\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -10515,7 +10515,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }
