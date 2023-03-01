@@ -18379,6 +18379,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\game\\1670\\FPT Book\\FPTBook\\Views\\StoreOwner\\ViewListBooks.cshtml",
+      "TargetPath": "Views\\StoreOwner\\ViewListBooks.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\game\\1670\\FPT Book\\FPTBook\\Views\\Cart\\Checkout.cshtml",
       "TargetPath": "Views\\Cart\\Checkout.cshtml",
       "FileKind": "mvc"
