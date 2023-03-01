@@ -9,13 +9,18 @@ using Microsoft.Extensions.Logging;
 
 namespace FPTBook.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class AdminController : Controller
     {
-        [Authorize(Roles = "admin")]
         public IActionResult Index()
         {
             return View();
         }
-        
+        public IActionResult ViewListAccounts()
+        {
+            var lstAcc = _db.Users.ToList();
+            return View(lstAcc);
+        }
     }
+    
 }
