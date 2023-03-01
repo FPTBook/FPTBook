@@ -41,16 +41,27 @@ namespace FPTBook.Controllers
                 return NotFound();
             }
 
-            _db.Add(new Cart()
+            var lstCart = GetLstCart();
+            var cartItem = lstCart.Find(b => b.book_id == book_id);
+            if (cartItem != null)
             {
-                book_id = book_id,
-                book = book,
-                user = user,
-                user_id = userId,
-                quantity = 1,
-                date = DateTime.Now
-            });
-            await _db.SaveChangesAsync();
+                cartItem.quantity++;
+                _db.Update(cartItem);
+                await _db.SaveChangesAsync();
+            }
+            else
+            {
+                _db.Add(new Cart()
+                {
+                    book_id = book_id,
+                    book = book,
+                    user = user,
+                    user_id = userId,
+                    quantity = 1,
+                    date = DateTime.Now
+                });
+                await _db.SaveChangesAsync();
+            }
             return RedirectToAction(nameof(Index));
         }
 
