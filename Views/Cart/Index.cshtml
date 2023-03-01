@@ -1,87 +1,90 @@
 @model List<FPTBook.Models.Cart>
 
 @{
-    ViewData["Title"] = "Index";
+  ViewData["Title"] = "Index";
 
-    double sum = 0.0;
-    int count = 0;
-    @foreach (var item in Model)
-    {
-        count++;
-    }
+  double sum = 0.0;
+  int count = 0;
+  @foreach (var item in Model)
+  {
+    count++;
+  }
 
 }
-<section class="h-100 h-custom" style="background: url(../img/backgr.jpg) repeat;">
+@if (Model.Count > 0)
+{
+  <section class="h-100 h-custom" style="background: url(../img/backgr.jpg) repeat;">
     <div class="container py-5 h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-12">
-                <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12">
+          <div class="card card-registration card-registration-2" style="border-radius: 15px;">
 
-                    <div class="card-body p-0">
-                        <div class="row g-0">
-                            <div class="col-lg-8">
-                                <div class="p-5">
-                                    <div class="d-flex justify-content-between align-items-center mb-5">
-                                        <h1 class="fw-bold mb-0 text-black">Shopping Cart</h1>
-                                        <h6 class="mb-0 text-muted">@count item(s)</h6>
-                                    </div>
-
-                                    @foreach (var item in Model)
-                                    {
-                                        sum += @item.quantity * @item.book.price;
-                                        <hr class="my-4">
-                                        <div class="row mb-4 d-flex justify-content-between align-items-center">
-                                            <div class="col-md-2 col-lg-2 col-xl-2">
-                                                <img src="~/img/@item.book.image" class="img-fluid rounded-3"
-                                                    alt="@item.book.name">
-                                            </div>
-                                            <div class="col-md-3 col-lg-3 col-xl-3">
-                                                <h6 class="text-black mb-0">@item.book.name</h6>
-                                            </div>
-                                            <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-
-                                                <input id="form1" min="0" name="quantity" value="@item.quantity"
-                                                    type="number" class="form-control form-control-sm" />
-                                            </div>
-                                            <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                                <h6 class="mb-0">@item.quantity * <span>&#36;</span>@item.book.price</h6>
-                                            </div>
-
-                                            <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                                                <a asp-controller="Cart" asp-action="DeleteCart" asp-route-id="@item.id"
-                                                    class="text-muted text-decoration-none"
-                                                    onclick="return confirm('Are you sure?')">x</a>
-                                            </div>
-                                        </div>
-                                    }
-                                    <hr class="my-4">
-                                    <div class="pt-5">
-                                        <h6 class="mb-0"><a asp-controller="Home" asp-action="Index"
-                                                class="text-body"><i class="fas fa-long-arrow-alt-left me-2"></i>Back to
-                                                shop</a></h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 bg-grey">
-                                <div class="p-5">
-                                    <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
-                                    <hr class="my-4">
-
-                                    <div class="d-flex justify-content-between mb-5">
-                                        <h5 class="text-uppercase">Total price</h5>
-                                        <h5><span>&#36;</span>@sum</h5>
-                                    </div>
-                                    <form action="" method="POST">
-                                        <a asp-controller="Cart" asp-action="Checkout"
-                                            class="btn btn-primary btn-block btn-lg"
-                                            data-mdb-ripple-color="dark">Checkout</a>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+            <div class="card-body p-0">
+              <div class="row g-0">
+                <div class="col-lg-8">
+                  <div class="p-5">
+                    <div class="d-flex justify-content-between align-items-center mb-5">
+                      <h1 class="fw-bold mb-0 text-black">Shopping Cart</h1>
+                      <h6 class="mb-0 text-muted">@count item(s)</h6>
                     </div>
+
+                    @foreach (var item in Model)
+                    {
+                      sum += @item.quantity * @item.book.price;
+                      <hr class="my-4">
+                      <div class="row mb-4 d-flex justify-content-between align-items-center">
+                        <div class="col-md-2 col-lg-2 col-xl-2">
+                          <img src="~/img/@item.book.image" class="img-fluid rounded-3" alt="@item.book.name">
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-3">
+                          <h6 class="text-black mb-0">@item.book.name</h6>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+
+                          <input id="form1" min="0" name="quantity" value="@item.quantity" type="number"
+                            class="form-control form-control-sm" />
+                        </div>
+                        <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                          <h6 class="mb-0">@item.quantity * <span>&#36;</span>@item.book.price</h6>
+                        </div>
+
+                        <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                          <a asp-controller="Cart" asp-action="DeleteCart" asp-route-id="@item.id"
+                            class="text-muted text-decoration-none" onclick="return confirm('Are you sure?')">x</a>
+                        </div>
+                      </div>
+                    }
+                    <hr class="my-4">
+                    <div class="pt-5">
+                      <h6 class="mb-0"><a asp-controller="Home" asp-action="Index" class="text-body"><i
+                            class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a></h6>
+                    </div>
+                  </div>
                 </div>
+                <div class="col-lg-4 bg-grey">
+                  <div class="p-5">
+                    <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
+                    <hr class="my-4">
+
+                    <div class="d-flex justify-content-between mb-5">
+                      <h5 class="text-uppercase">Total price</h5>
+                      <h5><span>&#36;</span>@sum</h5>
+                    </div>
+                    <form action="" method="POST">
+                      <a asp-controller="Cart" asp-action="Checkout" class="btn btn-primary btn-block btn-lg"
+                        data-mdb-ripple-color="dark">Checkout</a>
+                    </form>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</section>
+  </section>
+}
+else
+{
+  <h3 class="alert alert-danger">The Shopping Cart Is Empty!</h3>
+}

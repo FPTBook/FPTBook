@@ -16,6 +16,7 @@ namespace FPTBook.Models
         public string name { get; set; }
         [Required]
         public string description { get; set; }
+        public int? status { get; set; }
         public virtual ICollection<Book>? books { get; set;}
     }
 }
