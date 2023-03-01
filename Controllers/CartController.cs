@@ -76,6 +76,20 @@ namespace FPTBook.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public IActionResult Checkout()
+        {
+            var lstCart = _db.Carts.Include(c => c.user).Include(c => c.book).Include(c => c.book.category).ToList();
+            string userId = GetUserId();
+            var cart = lstCart.Where(c => c.user_id == userId).ToList();
+            if (cart.Count == 0)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            return View(cart);
+        }
+
+
+
         private string GetUserId()
         {
             return Convert.ToString(HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));

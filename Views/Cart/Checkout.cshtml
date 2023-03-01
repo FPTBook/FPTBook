@@ -1,0 +1,78 @@
+@model List<FPTBook.Models.Cart>
+
+@{
+    ViewData["Title"] = "Checkout";
+    double sum = 0.0;
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+            <h1>Checkout</h1>
+            <table class="table">
+                <thead>
+                    <th>Item</th>
+                    <th>Item's title</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>Selected Quantity</th>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+                        sum += @item.quantity * @item.book.price;
+                        <tr>
+                            <td style="width: 100px;"><img src="~/img/@item.book.image" alt="@item.book.name"></td>
+                            <td>@item.book.name</td>
+                            <td>@item.book.description</td>
+                            <td>@item.book.price</td>
+                            <td>@item.book.category.name</td>
+                            <td>@item.quantity</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-4">
+            <h1>Information User</h1>
+            <table class="table">
+
+                <tbody>
+                    <tr>
+                        <th>Full Name: </th>
+                        <td>@Model.First().user.full_name</td>
+                    </tr>
+                    <tr>
+                        <th>Phone: </th>
+                        <td>@Model.First().user.PhoneNumber</td>
+                    </tr>
+                    <tr>
+                        <th>Delivery To: </th>
+                        <td>@Model.First().user.address</td>
+                    </tr>
+                    <tr>
+                        <th>Total: </th>
+                        <td>$@sum</td>
+                    </tr>
+                    @if (TempData["msg"] != null)
+                    {
+                        <span class="text-danger">@TempData["msg"]</span>
+                    }
+                    <tr>
+                        <th>
+                            <form action="" method="post">
+                                <input type="submit" value="Submit" class="btn btn-primary" asp-controller="Cart"
+                                    asp-action="Order" asp-route-total="@sum" />
+                                <input type="submit" value="Cancel" class="btn btn-primary" asp-controller="Cart"
+                                    asp-action="Index" />
+                            </form>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
