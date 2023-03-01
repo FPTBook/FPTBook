@@ -93,13 +93,13 @@
                                     @if (User.IsInRole("storeowner"))
                                     {
                                         <a asp-controller="StoreOwner" asp-action="ViewListBooks">Book</a>
-                                        <a asp-controller="StoreOwner" asp-action="">Category</a>
+                                        <a asp-controller="StoreOwner" asp-action="ViewListCategories">Category</a>
                                         <a asp-controller="StoreOwner" asp-action="ViewListOrders">Order</a>
                                     }
 
                                     @if (User.IsInRole("admin"))
                                     {
-                                        <a asp-controller="Admin" asp-action="">Account</a>
+                                        <a asp-controller="Admin" asp-action="ViewListAccounts">Account</a>
                                     }
                                 </div>
                             </li>

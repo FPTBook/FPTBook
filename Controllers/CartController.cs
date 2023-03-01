@@ -88,7 +88,66 @@ namespace FPTBook.Controllers
             return View(cart);
         }
 
+        public IActionResult Order(double total)
+        {
+            var lstCart = GetLstCart();
+            string userId = GetUserId();
+            var cart = lstCart.Where(c => c.user_id == userId).ToList();
+            var user = _db.Users.Where(u => u.Id == userId).FirstOrDefault();
 
+            var book = _db.Books.ToList();
+            foreach (var item in cart)
+            {
+                var itemBook = book.Where(b => b.id == item.book_id).FirstOrDefault();
+                var temp = itemBook.quantity;
+                temp = temp - item.quantity;
+                if (temp < 0)
+                {
+                    TempData["msg"] = "Book with name " + itemBook.name + " has not enough quantity to buy!";
+                    return RedirectToAction(nameof(Checkout));
+                }
+            }
+
+            _db.Add(new Order
+            {
+                user = user,
+                user_id = userId,
+                order_date = DateTime.Now,
+                address = user.address,
+                payment = total,
+                status = 0
+            });
+            _db.SaveChanges();
+
+            var order = _db.Orders.OrderByDescending(o => o.id).Where(o => o.user_id == userId).FirstOrDefault();
+
+            foreach (var item in cart)
+            {
+                _db.Add(new OrderDetail
+                {
+                    book = item.book,
+                    book_id = item.book_id,
+                    order = order,
+                    order_id = order.id,
+                    book_quantity = item.quantity,
+                    book_price = item.book.price,
+                    total = item.quantity * item.book.price
+
+                });
+                var itemBook = book.Where(b => b.id == item.book_id).FirstOrDefault();
+                itemBook.quantity = itemBook.quantity - item.quantity;
+                _db.Update(itemBook);
+            }
+            _db.SaveChanges();
+
+            foreach (var item in cart)
+            {
+                _db.Carts.Remove(item);
+            }
+            _db.SaveChanges();
+
+            return RedirectToAction("Index", "Home");
+        }
 
         private string GetUserId()
         {
