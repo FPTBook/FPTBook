@@ -18469,6 +18469,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\game\\1670\\FPT Book\\FPTBook\\Views\\Admin\\CategoryApproval.cshtml",
+      "TargetPath": "Views\\Admin\\CategoryApproval.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\game\\1670\\FPT Book\\FPTBook\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"

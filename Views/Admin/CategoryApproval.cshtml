@@ -1,0 +1,38 @@
+@model List<FPTBook.Models.Category_Request>
+
+@{
+    ViewData["Title"] = "CategoryApproval";
+}
+
+<h1>Category Approval</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>User Id</th>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.user_id</td>
+                <td>User with username @item.user.UserName want to add new category with name is  @item.description</td>
+                <td>@item.date.ToString("dd/MM/yyyy")</td>
+                <td>
+                    <button class="btn btn-primary" style="margin-top: 0px;">
+                        <a style="color: white;" type="button" asp-route-id="@item.id" asp-action="ApproveRequest"
+                            onclick="return confirm('Are you sure that approve the request?')">Approve</a></button>
+                    <button class="btn btn-primary" style="margin-top: 0px;">
+                        <a style="color: white;" type="button" asp-route-id="@item.id" asp-action="RejectRequest"
+                            onclick="return confirm('Are you sure that reject the request?')">Reject</a></button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
