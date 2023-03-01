@@ -22,18 +22,21 @@
             <tr>
                 <td>@item.id</td>
                 <td>@item.user_id</td>
-                <td>User with username @item.user.UserName want to add new category with name is  @item.description</td>
+                <td>User with username @item.user.UserName want to add new category with name is @item.description</td>
                 <td>@item.date.ToString("dd/MM/yyyy")</td>
-                <td>
-                    <button class="btn btn-primary" style="margin-top: 0px;">
-                        <a style="color: white;" type="button" asp-route-id="@item.id" asp-action="ApproveRequest"
-                            onclick="return confirm('Are you sure that approve the request?')">Approve</a></button>
-                    <button class="btn btn-primary" style="margin-top: 0px;">
-                        <a style="color: white;" type="button" asp-route-id="@item.id" asp-action="RejectRequest"
-                            onclick="return confirm('Are you sure that reject the request?')">Reject</a></button>
-                </td>
+                @if (item.status == 0)
+                {
+                    <td>
+                        <button class="btn btn-primary" style="margin-top: 0px;">
+                            <a style="color: white;" type="button" asp-route-id="@item.id" asp-action="ApproveRequest"
+                                onclick="return confirm('Are you sure that approve the request?')">Approve</a></button>
+                        <button class="btn btn-primary" style="margin-top: 0px;">
+                            <a style="color: white;" type="button" asp-route-id="@item.id" asp-action="RejectRequest"
+                                onclick="return confirm('Are you sure that reject the request?')">Reject</a></button>
+                    </td>
+                }
+
             </tr>
         }
     </tbody>
 </table>
-/
