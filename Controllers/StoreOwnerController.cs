@@ -25,5 +25,15 @@ namespace FPTBook.Controllers
 
             return View(lstBook);
         }
+        public IActionResult DetailBook(int id)
+        {
+            var book = _db.Books.Find(id);
+            if (book == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(book);
+        }
     }
 }
