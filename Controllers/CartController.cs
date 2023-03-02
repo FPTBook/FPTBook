@@ -31,6 +31,46 @@ namespace FPTBook.Controllers
             return View(cart);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> AddToCart(Book model, int book_id)
+        {
+            if(model.quantity < 1)
+            {
+                TempData["msg"] = "The number of quantity book to add to cart is a number greater than 1!";
+                return RedirectToAction("Detail", "Home");
+            }
+            var book = await _db.Books.Where(b => b.id == book_id).FirstOrDefaultAsync();
+            string userId = GetUserId();
+            var user = await _db.Users.Where(u => u.Id == userId).FirstOrDefaultAsync();
+            if (book == null)
+            {
+                return NotFound();
+            }
+
+            var lstCart = GetLstCart();
+            var cartItem = lstCart.Find(b => b.book_id == book_id);
+            if (cartItem != null)
+            {
+                cartItem.quantity = cartItem.quantity + model.quantity;
+                _db.Update(cartItem);
+                await _db.SaveChangesAsync();
+            }
+            else
+            {
+                _db.Add(new Cart()
+                {
+                    book_id = book_id,
+                    book = book,
+                    user = user,
+                    user_id = userId,
+                    quantity = model.quantity,
+                    date = DateTime.Now
+                });
+                await _db.SaveChangesAsync();
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
         public async Task<IActionResult> AddCart(int book_id)
         {
             var book = await _db.Books.Where(b => b.id == book_id).FirstOrDefaultAsync();

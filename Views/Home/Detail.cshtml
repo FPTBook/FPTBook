@@ -14,12 +14,16 @@
                 <h2>$@Model.price</h2>
                 <hr>
                 <b>Description: </b>@Model.description
-                <form class="mt-4 p-4 bg-light" method="post">
+                <form asp-route-book_id="@Model.id" asp-controller="Cart" asp-action="AddToCart" class="mt-4 p-4 bg-light" method="post">
                     <div class="form-group">
                         <label for="quantity">Quantity</label>
                         <input type="number" class="form-control" asp-for="quantity" value="1">
+                        @if(TempData["msg"] != null)
+                        {
+                            <span class="text-danger">@TempData["msg"]</span>
+                        }
                     </div>
-                    <a asp-controller="Cart" asp-action="AddCart" asp-route-id="@Model.id" class="btn btn-primary">Add to Cart</a>
+                    <input type="submit" class="btn btn-primary" value="Add to Cart" />
                     <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Back</a>
                 </form>
             </div>
