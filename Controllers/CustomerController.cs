@@ -105,5 +105,14 @@ namespace FPTBook.Controllers
 
             return View(model);
         }
+
+        public IActionResult CancelOrder(int id)
+        {
+            var order = _context.Orders.Find(id);
+            order.status = 2;
+            _context.Update(order);
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

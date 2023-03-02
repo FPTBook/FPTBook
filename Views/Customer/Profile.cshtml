@@ -66,13 +66,21 @@
                         {
                             status = "Delivered";
                         }
+                        else if (item.status == 2)
+                        {
+                            status = "Canceled";
+                        }
                         <tr>
                             <td>@item.order_date.ToString("dd/MM/yyyy")</td>
                             <td>@item.payment</td>
                             <td>@status</td>
                             @if (item.status == 0)
                             {
-                                <td><input type="submit" value="Cancel" class="btn btn-primary" style="margin-top: 0px;" /></td>
+                                <td><a class="btn btn-primary" type="button" asp-controller="Customer" asp-action="CancelOrder"
+                                asp-route-id="@item.id" style="margin-top: 0px;"
+                                        onclick="return confirm('Are you sure about cancel the order?')"
+                                        role="button">Cancel</a>
+                                </td>
                             }
                         </tr>
                     }
