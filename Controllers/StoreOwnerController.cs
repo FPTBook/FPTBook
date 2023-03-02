@@ -93,5 +93,14 @@ namespace FPTBook.Controllers
             }
             return RedirectToAction(nameof(ViewListOrders));
         }
+          public IActionResult ViewOrderDetail(int id)
+        {
+            var lstOrderDetail = _db.OrderDetails.Include(od => od.book).Where(od => od.order_id == id).ToList();
+            if (lstOrderDetail == null)
+            {
+                return NotFound();
+            }
+            return View(lstOrderDetail);
+        }
     }
 }
