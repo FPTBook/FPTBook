@@ -108,5 +108,14 @@ namespace FPTBook.Controllers
             return View(categories);
         }
 
+        public IActionResult DeleteCategory(int id)
+        {
+            var category = _db.Categories.Find(id);
+            category.status = 0;
+            _db.Update(category);
+            _db.SaveChanges();
+            return View();
+        }
+
     }
 }
