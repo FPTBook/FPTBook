@@ -7,6 +7,7 @@ using FPTBook.DB;
 using FPTBook.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -27,6 +28,48 @@ namespace FPTBook.Controllers
 
             return View(lstBook);
         }
+
+        public IActionResult CreateBook()
+        {
+            var categories = _db.Categories.Where(c => c.status == 1).ToList();
+            ViewData["category_id"] = new SelectList(categories, "id", "name");
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateBook(IFormFile img, Book book)
+        {
+            var categories = _db.Categories.Where(c => c.status == 1).ToList();
+            if (ModelState.IsValid)
+            {
+                var filePaths = new List<string>();
+                if (img.Length > 0)
+                {
+                    string fileType = Path.GetExtension(img.FileName).ToLower().Trim();
+                    if (fileType != ".jpg" && fileType != ".png")
+                    {
+                        TempData["msg"] = "File Format Not Supported. Only .jpg and .png !";
+                        return View(book);
+                    }
+
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\img", img.FileName);
+                    book.image = img.FileName;
+                    filePaths.Add(filePath);
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await img.CopyToAsync(stream);
+                    }
+
+                    _db.Add(book);
+                    await _db.SaveChangesAsync();
+                    return RedirectToAction(nameof(ViewListBooks));
+                }
+
+            }
+            ViewData["category_id"] = new SelectList(categories, "id", "name");
+            return View(book);
+        }
+
         public IActionResult DetailBook(int id)
         {
             var book = _db.Books.Find(id);

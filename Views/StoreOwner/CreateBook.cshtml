@@ -1,0 +1,109 @@
+@model FPTBook.Models.Book
+
+@{
+    ViewData["Title"] = "CreateBook";
+}
+
+<div class="container">
+    <h2>Create A New Book</h2>
+    <form asp-action="CreateBook" enctype="multipart/form-data" method="post" class="form-horizontal" role="form">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Name(*): </label>
+            <div class="col-sm-10">
+                <input type="text" asp-for="name" class="form-control" placeholder="Name" />
+                <span class="text-danger" asp-validation-for="name"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Author(*): </label>
+            <div class="col-sm-10">
+                <input type="text" asp-for="author" class="form-control" placeholder="Author" />
+                <span class="text-danger" asp-validation-for="author"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Date Public(*): </label>
+            <div class="col-sm-10">
+                <input type="date" asp-for="date" class="form-control" placeholder="Date Public" />
+                <span class="text-danger" asp-validation-for="date"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Description(*): </label>
+            <div class="col-sm-10">
+                <input type="text" asp-for="description" class="form-control" placeholder="Description" />
+                <span class="text-danger" asp-validation-for="description"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Quantity(*): </label>
+            <div class="col-sm-10">
+                <input type="number" asp-for="quantity" class="form-control" placeholder="Quantity" />
+                <span class="text-danger" asp-validation-for="quantity"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Old Price(*): </label>
+            <div class="col-sm-10">
+                <input type="number" asp-for="old_price" class="form-control" placeholder="Old Price" />
+                <span class="text-danger" asp-validation-for="old_price"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Price(*): </label>
+            <div class="col-sm-10">
+                <input type="number" asp-for="price" class="form-control" placeholder="Price" />
+                <span class="text-danger" asp-validation-for="price"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Image(*): </label>
+            <div class="col-sm-10">
+                <input type="file" name="img" class="form-control" required />
+                <span class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Category(*): </label>
+            <div class="col-sm-10">
+                <select asp-for="category_id" class="form-control" asp-items="ViewBag.category_id"></select>
+                <span class="text-danger" asp-validation-for="category_id"></span>
+            </div>
+        </div>
+
+        <input type="hidden" asp-for="is_deleted" value="False">
+        <input type="hidden" asp-for="status" value="1">
+
+        @if (TempData["msg"] != null)
+        {
+            <div class="form-group">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-10">
+                    <span class="text-danger">@TempData["msg"]</span>
+                </div>
+            </div>
+        }
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" class="btn btn-primary" value="Submit" />
+                <button class="btn btn-primary"><a style="color: white;" type="button" 
+                    asp-action="ViewListBooks">Back to List</a>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
