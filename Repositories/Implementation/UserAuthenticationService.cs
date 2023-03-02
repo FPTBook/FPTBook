@@ -48,6 +48,33 @@ namespace FPTBook.Repositories.Implementation
             return status;
         }
 
+        public async Task<Status> ResetPasswordAsync(ResetPasswordModel model, string username)
+        {
+            var status = new Status();
+
+            var user =  await userManager.FindByNameAsync(username);
+            if(user == null)
+            {
+                status.Message = "User does not exist";
+                status.StatusCode = 0;
+                return status;
+            }
+
+            var code = await userManager.GeneratePasswordResetTokenAsync(user);
+            var result = await userManager.ResetPasswordAsync(user, code.ToString(), model.NewPassword);
+            if(result.Succeeded)
+            {
+                status.Message = "Account has reset password successfully!";
+                status.StatusCode = 1;
+            }
+            else
+            {
+                status.Message = "Some error occured";
+                status.StatusCode = 0;
+            }
+            return status;
+        }
+
         public async Task<Status> LoginAsync(LoginModel model)
         {
             var status = new Status();

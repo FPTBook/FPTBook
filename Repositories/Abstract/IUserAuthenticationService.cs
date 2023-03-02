@@ -12,5 +12,6 @@ namespace FPTBook.Repositories.Abstract
         Task LogoutAsync();
         Task<Status> RegistrationAsync(RegistrationModel model);
         Task<Status> ChangePasswordAsync(ChangePasswordModel model, string username);
+        Task<Status> ResetPasswordAsync(ResetPasswordModel model, string username);
     }
 }

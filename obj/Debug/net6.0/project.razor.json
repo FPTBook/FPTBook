@@ -18449,6 +18449,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "e:\\UoG\\1670-Application Development\\FPTBook\\Views\\UserAuthentication\\ResetPassword.cshtml",
+      "TargetPath": "Views\\UserAuthentication\\ResetPassword.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "e:\\UoG\\1670-Application Development\\FPTBook\\Views\\UserAuthentication\\Login.cshtml",
       "TargetPath": "Views\\UserAuthentication\\Login.cshtml",
       "FileKind": "mvc"

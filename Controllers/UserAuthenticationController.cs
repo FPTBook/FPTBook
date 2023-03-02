@@ -103,5 +103,23 @@ namespace FPTBook.Controllers
             TempData["msg"] = result.Message;
             return RedirectToAction(nameof(AddAccount));
         }
+
+        [Authorize(Roles = "admin")]
+        public IActionResult ResetPassword(string username)
+        {
+            TempData["user"] = username;
+            return View();
+        }
+
+        [Authorize(Roles = "admin")]
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword(ResetPasswordModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+            var result = await _service.ResetPasswordAsync(model, (string)TempData["user"]);
+            TempData["msg"] = result.Message;
+            return RedirectToAction("ResetPassword", "UserAuthentication");
+        }
     }
 }
