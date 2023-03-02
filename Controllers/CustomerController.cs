@@ -63,7 +63,18 @@ namespace FPTBook.Controllers
         public async Task<IActionResult> Update(User model)
         {
             var user = await userManager.FindByIdAsync(model.Id);
+            var userExists = await userManager.FindByNameAsync(model.UserName);
+            var emailExist = await userManager.FindByEmailAsync(model.Email);
+            if(userExists != null && userExists.UserName != user.UserName){
+                TempData["war"] = "The username has already existed!";
+                return RedirectToAction(nameof(Update));
+            }
 
+            if (emailExist != null && emailExist.Email != user.Email)
+            {
+                TempData["war"] = "The email has already existed!";
+                return RedirectToAction(nameof(Update));
+            }
             if (user == null)
             {
                 return NotFound();
