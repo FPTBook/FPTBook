@@ -57,6 +57,14 @@
       "PackagePath": "staticwebassets\\img\\br1.jpg"
     },
     {
+      "Id": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\img\\harry_potter_and_the_deathly_hallows.jpg",
+      "PackagePath": "staticwebassets\\img\\harry_potter_and_the_deathly_hallows.jpg"
+    },
+    {
+      "Id": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\img\\introduction_to_algorithms.png",
+      "PackagePath": "staticwebassets\\img\\introduction_to_algorithms.png"
+    },
+    {
       "Id": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\img\\logo.jpg",
       "PackagePath": "staticwebassets\\img\\logo.jpg"
     },
@@ -65,8 +73,16 @@
       "PackagePath": "staticwebassets\\img\\refactoring_improving_the_design_of_existing_code.jpg"
     },
     {
+      "Id": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\img\\the_clean_coder.jpg",
+      "PackagePath": "staticwebassets\\img\\the_clean_coder.jpg"
+    },
+    {
       "Id": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\img\\the_giver.jpg",
       "PackagePath": "staticwebassets\\img\\the_giver.jpg"
+    },
+    {
+      "Id": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\img\\the_pragmatic_programmer.jpg",
+      "PackagePath": "staticwebassets\\img\\the_pragmatic_programmer.jpg"
     },
     {
       "Id": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\img\\time_now_to_dream.jpg",

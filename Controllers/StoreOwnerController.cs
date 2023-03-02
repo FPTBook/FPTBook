@@ -73,15 +73,17 @@ namespace FPTBook.Controllers
         public IActionResult UpdateBook(int id)
         {
             var book = _db.Books.Find(id);
+            var categories = _db.Categories.Where(c => c.status == 1).ToList();
             ViewData["category_id"] = new
             // SelectList(_db.Categories, "Id", "Id", book.category_id)
-            SelectList(_db.Categories, "id", "name");
+            SelectList(categories, "id", "name");
             return View(book);
         }
 
         [HttpPost]
         public async Task<IActionResult> UpdateBook(IFormFile? img, Book book)
         {
+            var categories = _db.Categories.Where(c => c.status == 1).ToList();
             if (ModelState.IsValid)
             {
                 var filePaths = new List<string>();
@@ -111,7 +113,7 @@ namespace FPTBook.Controllers
                 }
 
             }
-            ViewData["category_id"] = new SelectList(_db.Categories, "id", "name");
+            ViewData["category_id"] = new SelectList(categories, "id", "name");
             return View(book);
         }
 
@@ -213,7 +215,7 @@ namespace FPTBook.Controllers
                 _db.Add( new Category_Request{
                     user_id = user.Id,
                     user = user,
-                    description = "User with username " + username + " want to add new category with name is " + category.name,
+                    description = category.name,
                     date = DateTime.Now,
                     status = 0
                 });
