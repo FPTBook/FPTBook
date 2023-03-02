@@ -196,6 +196,33 @@ namespace FPTBook.Controllers
             return View(categories);
         }
 
+        public IActionResult AddCategory()
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        public IActionResult AddCategory(Category category, string username)
+        {
+            if(ModelState.IsValid){
+                category.status = 0;
+                _db.Add(category);
+                
+
+                var user = _db.Users.Where(u => u.UserName == username).FirstOrDefault();
+                _db.Add( new Category_Request{
+                    user_id = user.Id,
+                    user = user,
+                    description = "User with username " + username + " want to add new category with name is " + category.name,
+                    date = DateTime.Now,
+                    status = 0
+                });
+                _db.SaveChanges();
+                return RedirectToAction(nameof(ViewListCategories));
+            }
+            return View(category);
+        }
+
         public IActionResult DeleteCategory(int id)
         {
             var category = _db.Categories.Find(id);
