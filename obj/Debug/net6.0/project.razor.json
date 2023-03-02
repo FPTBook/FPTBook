@@ -18489,6 +18489,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "e:\\UoG\\1670-Application Development\\FPTBook\\Views\\StoreOwner\\UpdateCategory.cshtml",
+      "TargetPath": "Views\\StoreOwner\\UpdateCategory.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "e:\\UoG\\1670-Application Development\\FPTBook\\Views\\Home\\Detail.cshtml",
       "TargetPath": "Views\\Home\\Detail.cshtml",
       "FileKind": "mvc"

@@ -1,0 +1,44 @@
+@model FPTBook.Models.Category
+
+@{
+    ViewData["Title"] = "UpdateCategory";
+}
+
+<div class="container">
+    <h2>Update Category</h2>
+    <form asp-action="UpdateCategory" method="post" class="form-horizontal" role="form">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Name(*): </label>
+            <div class="col-sm-10">
+                <input type="text" asp-for="name" class="form-control" placeholder="@Model.name" />
+                <span class="text-danger" asp-validation-for="name"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Description(*): </label>
+            <div class="col-sm-10">
+                <input type="text" asp-for="description" class="form-control" placeholder="@Model.description" />
+                <span class="text-danger" asp-validation-for="description"></span>
+            </div>
+        </div>
+
+        @* @if (TempData["msg"] != null)
+        {
+            <div class="form-group">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-10">
+                    <span class="text-danger">@TempData["msg"]</span>
+                </div>
+            </div>
+        } *@
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" class="btn btn-primary" value="Submit" />
+                <button class="btn btn-primary"><a style="color: white;" type="button" 
+                    asp-action="ViewListCategories">Back</a>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

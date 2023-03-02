@@ -223,6 +223,27 @@ namespace FPTBook.Controllers
             return View(category);
         }
 
+        public IActionResult UpdateCategory(int id)
+        {
+            var category = _db.Categories.Find(id);
+            return View(category);
+        }
+        
+        [HttpPost]
+        public async Task<IActionResult> UpdateCategory(Category model)
+        {
+            var category = _db.Categories.Find(model.id);
+            if(ModelState.IsValid)
+            {
+                category.name = model.name;
+                category.description = model.description;
+                _db.Update(category);
+                await _db.SaveChangesAsync();
+                return RedirectToAction(nameof(ViewListCategories));
+            }
+            return View(category);
+        }
+
         public IActionResult DeleteCategory(int id)
         {
             var category = _db.Categories.Find(id);
