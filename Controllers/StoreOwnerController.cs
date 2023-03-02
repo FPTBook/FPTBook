@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using FPTBook.DB;
+using FPTBook.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -34,6 +35,20 @@ namespace FPTBook.Controllers
             }
 
             return View(book);
+        }
+
+        public IActionResult DeleteBook(int id)
+        {
+            Book book = _db.Books.Find(id);
+            if (book == null)
+            {
+                return RedirectToAction("Index");
+            }
+            book.is_deleted = true;
+            book.status = 2;
+            _db.Update(book);
+            _db.SaveChanges();
+            return RedirectToAction(nameof(ViewListBooks));
         }
     }
 }
