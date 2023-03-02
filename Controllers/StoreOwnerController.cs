@@ -61,5 +61,37 @@ namespace FPTBook.Controllers
             }
             return View(lstOrder);
         }
+        public IActionResult UpdateOrder(int id)
+        {
+            var order = _db.Orders.Find(id);
+            if (order == null)
+            {
+                return NotFound();
+            }
+            return View(order);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateOrder(Order model)
+        {
+            var order = _db.Orders.Find(model.id);
+            if (model.status != order.status || model.address != order.address)
+            {
+                if (model.status == 1)
+                {
+                    order.delivery_date = DateTime.Now;
+                }
+
+                if (model.status == 0)
+                {
+                    order.delivery_date = null;
+                }
+                order.address = model.address;
+                order.status = model.status;
+                _db.Update(order);
+                _db.SaveChanges();
+            }
+            return RedirectToAction(nameof(ViewListOrders));
+        }
     }
 }
