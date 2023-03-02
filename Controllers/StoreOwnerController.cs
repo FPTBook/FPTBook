@@ -7,6 +7,7 @@ using FPTBook.DB;
 using FPTBook.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace FPTBook.Controllers
@@ -49,6 +50,16 @@ namespace FPTBook.Controllers
             _db.Update(book);
             _db.SaveChanges();
             return RedirectToAction(nameof(ViewListBooks));
+        }
+
+        public IActionResult ViewListOrders()
+        {
+            var lstOrder = _db.Orders.Include(o => o.user).ToList();
+            if (lstOrder == null)
+            {
+                return NotFound();
+            }
+            return View(lstOrder);
         }
     }
 }

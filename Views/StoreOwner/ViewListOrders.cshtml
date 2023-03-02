@@ -1,0 +1,53 @@
+@model List<FPTBook.Models.Order>
+
+@{
+    ViewData["Title"] = "ViewListOrders";
+}
+<h1>Order</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>User Name</th>
+            <th>Order Date</th>
+            <th>Delivery Date</th>
+            <th>Address</th>
+            <th>Payemnet</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            string status = "";
+            @if (item.status == 0)
+            {
+                status = "Packing";
+            }
+            else if (item.status == 1)
+            {
+                status = "Delivered";
+            }
+            else if (item.status == 2)
+            {
+                status = "Canceled";
+            }
+            <tr>
+                <td>@item.id</td>
+                <td>@item.user.UserName</td>
+                <td>@item.order_date.ToString("dd/MM/yyyy")</td>
+                <td>@item.delivery_date?.ToString("dd/MM/yyyy")</td>
+                <td>@item.address</td>
+                <td>@item.payment</td>
+                <td>@status</td>
+                <td>
+                    <button class="btn btn-primary" style="margin-top: 0px;">
+                        <a style="color: white;" type="button" asp-action="ViewOrderDetail" asp-route-id="@item.id">Details</a></button>
+                    <button class="btn btn-primary" style="margin-top: 0px;">
+                        <a style="color: white;" type="button" asp-action="UpdateOrder" asp-route-id="@item.id">Update</a></button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
