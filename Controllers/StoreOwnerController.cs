@@ -70,6 +70,51 @@ namespace FPTBook.Controllers
             return View(book);
         }
 
+        public IActionResult UpdateBook(int id)
+        {
+            var book = _db.Books.Find(id);
+            ViewData["category_id"] = new
+            // SelectList(_db.Categories, "Id", "Id", book.category_id)
+            SelectList(_db.Categories, "id", "name");
+            return View(book);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateBook(IFormFile? img, Book book)
+        {
+            if (ModelState.IsValid)
+            {
+                var filePaths = new List<string>();
+                if (img != null && img.Length > 0)
+                {
+                    string fileType = Path.GetExtension(img.FileName).ToLower().Trim();
+                    if (fileType != ".jpg" && fileType != ".png")
+                    {
+                        TempData["msg"] = "File Format Not Supported. Only .jpg and .png !";
+                        return View(book);
+                    }
+
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\img", img.FileName);
+                    book.image = img.FileName;
+                    filePaths.Add(filePath);
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await img.CopyToAsync(stream);
+                    }
+                    if(book.is_deleted){
+                        book.status = 2;
+                    }
+                    TempData["msg"] = "Updated successfully!";
+                    _db.Update(book);
+                    await _db.SaveChangesAsync();
+                    return RedirectToAction(nameof(UpdateBook));
+                }
+
+            }
+            ViewData["category_id"] = new SelectList(_db.Categories, "id", "name");
+            return View(book);
+        }
+
         public IActionResult DetailBook(int id)
         {
             var book = _db.Books.Find(id);

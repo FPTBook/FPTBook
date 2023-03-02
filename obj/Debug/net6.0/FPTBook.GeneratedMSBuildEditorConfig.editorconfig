@@ -88,6 +88,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVPd25lclxEZXRhaWxCb29rLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[e:/UoG/1670-Application Development/FPTBook/Views/StoreOwner/UpdateBook.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVPd25lclxVcGRhdGVCb29rLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [e:/UoG/1670-Application Development/FPTBook/Views/StoreOwner/UpdateOrder.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVPd25lclxVcGRhdGVPcmRlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

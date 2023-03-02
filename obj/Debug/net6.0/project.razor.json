@@ -18449,6 +18449,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "e:\\UoG\\1670-Application Development\\FPTBook\\Views\\StoreOwner\\UpdateBook.cshtml",
+      "TargetPath": "Views\\StoreOwner\\UpdateBook.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "e:\\UoG\\1670-Application Development\\FPTBook\\Views\\UserAuthentication\\ChangePassword.cshtml",
       "TargetPath": "Views\\UserAuthentication\\ChangePassword.cshtml",
       "FileKind": "mvc"
