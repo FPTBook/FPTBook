@@ -102,5 +102,11 @@ namespace FPTBook.Controllers
             }
             return View(lstOrderDetail);
         }
+        public IActionResult ViewListCategories()
+        {
+            var categories = _db.Categories.ToList();
+            return View(categories);
+        }
+
     }
 }

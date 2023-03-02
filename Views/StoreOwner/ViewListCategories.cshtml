@@ -1,0 +1,53 @@
+@model List<FPTBook.Models.Category>
+
+@{
+    ViewData["Title"] = "ViewListCategories";
+}
+
+<h1>Manage Category</h1>
+<p>
+    <button class="btn btn-primary"><a style="color: white;" asp-action="AddCategory">Add</a></button>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Category Name</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            string status = "";
+            @if (item.status == 0)
+            {
+                status = "Awaiting Approval";
+            }
+            else if (item.status == 1)
+            {
+                status = "Approved";
+            }
+            else if (item.status == 2)
+            {
+                status = "Rejected";
+            }
+            <tr>
+                <td>@item.id</td>
+                <td>@item.name</td>
+                <td>@item.description</td>
+                <td>@status</td>
+                <td>
+                    <button class="btn btn-primary" style="margin-top: 0px;">
+                        <a style="color: white;" type="button" asp-route-id="@item.id" asp-action="UpdateCategory">Update</a></button>
+                    <button class="btn btn-primary" style="margin-top: 0px;">
+                        <a style="color: white;" type="button" asp-route-id="@item.id" asp-action="DeleteCategory"
+                            onclick="return confirm('Are you sure about that?')">Delete</a></button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
