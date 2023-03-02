@@ -68,26 +68,6 @@ namespace FPTBook.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        
-        // public async Task<IActionResult> Reg()
-        // {
-        //     var model = new RegistrationModel
-        //     {
-        //         Full_Name = "Luong Gia Luan",
-        //         Username = "admin",
-        //         Email = "admin@gmail.com",
-        //         Gender = "Male",
-        //         Phone = "0989999999",
-        //         Address = "Can Tho",
-        //         Password = "Admin@123"
-                
-        //     };
-        //     model.Role = "admin";
-        //     var result = await _service.RegistrationAsync(model);
-        //     TempData["msg"] = result.Message;
-        //     return Ok(result);
-        // }
-
         [Authorize]
         public IActionResult ChangePassword()
         {
@@ -105,6 +85,23 @@ namespace FPTBook.Controllers
             return RedirectToAction("ChangePassword", "UserAuthentication");
         }
 
-        
+        [Authorize(Roles = "admin")]
+        public IActionResult AddAccount()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "admin")]
+        [HttpPost]
+        public async Task<IActionResult> AddAccount(RegistrationModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            var result = await _service.RegistrationAsync(model);
+            TempData["msg"] = result.Message;
+            return RedirectToAction(nameof(AddAccount));
+        }
     }
 }
