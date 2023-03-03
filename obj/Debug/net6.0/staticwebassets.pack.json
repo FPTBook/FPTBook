@@ -85,6 +85,10 @@
       "PackagePath": "staticwebassets\\img\\the_pragmatic_programmer.jpg"
     },
     {
+      "Id": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\img\\three_men_in_a_Boat.jpg",
+      "PackagePath": "staticwebassets\\img\\three_men_in_a_Boat.jpg"
+    },
+    {
       "Id": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\img\\time_now_to_dream.jpg",
       "PackagePath": "staticwebassets\\img\\time_now_to_dream.jpg"
     },

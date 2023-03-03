@@ -24,7 +24,7 @@ namespace FPTBook.Controllers
         }
         public IActionResult ViewListBooks()
         {
-            var lstBook = _db.Books.ToList();
+            var lstBook = _db.Books.Include(b => b.category).ToList();
 
             return View(lstBook);
         }
@@ -170,6 +170,19 @@ namespace FPTBook.Controllers
                 if (model.status == 1)
                 {
                     order.delivery_date = DateTime.Now;
+                    var od = _db.OrderDetails.Where(od => od.order_id == order.id).ToList();
+                    foreach (var item in od)
+                    {
+                        var book = _db.Books.Where(b => b.id == item.book_id).FirstOrDefault();
+                        book.quantity = book.quantity - item.book_quantity;
+                        if(book.quantity == 0)
+                        {
+                            book.status = 0;
+                        }
+                        _db.Update(book);
+                        
+                    }
+                    _db.SaveChanges();
                 }
 
                 if (model.status == 0)
@@ -249,11 +262,28 @@ namespace FPTBook.Controllers
         public IActionResult DeleteCategory(int id)
         {
             var category = _db.Categories.Find(id);
-            category.status = 0;
+            category.status = 3;
+            var books = _db.Books.Where(b => b.category_id == category.id).ToList();
+            foreach (var item in books)
+            {
+                item.status = 2;
+                _db.Update(item);
+            }
             _db.Update(category);
             _db.SaveChanges();
-            return View();
+            return RedirectToAction(nameof(ViewListCategories));
         }
 
+        public IActionResult BestSellerBook()
+        {
+            var order = _db.Orders.Where(o => o.status == 1).ToList();
+
+            var books = _db.Books.Include(b => b.category).Include(b => b.orders_detail).
+            Where(b => b.orders_detail.FirstOrDefault().order.status == 1).
+            OrderByDescending(b => b.orders_detail.Where(o => o.book_id == b.id && o.order.status == 1).
+            Sum(o => o.book_quantity)).ToList();
+            return View(books);
+        }
+        
     }
 }

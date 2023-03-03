@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "HOOEQUmOpNEKjxufToRyaz87fDU09gJr8mRLWUIplUE=",
+  "Hash": "stdnk675HDNQ/YZuyDlkDy9Vp/zh5ScDWW1zRVDzwoI=",
   "Source": "FPTBook",
   "BasePath": "_content/FPTBook",
   "Mode": "Default",
@@ -1392,6 +1392,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\TheGiver.png"
+    },
+    {
+      "Identity": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\img\\three_men_in_a_Boat.jpg",
+      "SourceId": "FPTBook",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\",
+      "BasePath": "_content/FPTBook",
+      "RelativePath": "img/three_men_in_a_Boat.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\three_men_in_a_Boat.jpg"
     },
     {
       "Identity": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\img\\time_now_to_dream.jpg",
