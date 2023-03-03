@@ -44,11 +44,18 @@
                 <td>@item.description</td>
                 <td>@status</td>
                 <td>
-                    <button class="btn btn-primary" style="margin-top: 0px;">
-                        <a style="color: white;" type="button" asp-route-id="@item.id" asp-action="UpdateCategory">Update</a></button>
-                    <button class="btn btn-primary" style="margin-top: 0px;">
-                        <a style="color: white;" type="button" asp-route-id="@item.id" asp-action="DeleteCategory"
-                            onclick="return confirm('Are you sure about that?')">Delete</a></button>
+                    @if (item.status == 1)
+                    {
+                        <button class="btn btn-primary" style="margin-top: 0px;">
+                            <a style="color: white;" type="button" asp-route-id="@item.id"
+                        asp-action="UpdateCategory">Update</a></button>
+                    }
+                    @if (item.status != 3)
+                    {
+                        <button class="btn btn-primary" style="margin-top: 0px;">
+                            <a style="color: white;" type="button" asp-route-id="@item.id" asp-action="DeleteCategory"
+                                onclick="return confirm('Are you sure about that?')">Delete</a></button>
+                    }
                 </td>
             </tr>
         }
