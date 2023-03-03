@@ -43,14 +43,9 @@
                 <td>@status</td>
                 <td>
                     <button class="btn btn-primary" style="margin-top: 0px;">
-                        <a style="color: white;" type="button" asp-action="ViewOrderDetail"
-                        asp-route-id="@item.id">Details</a></button>
-                    @if (item.status == 0)
-                    {
-                        <button class="btn btn-primary" style="margin-top: 0px;">
-                            <a style="color: white;" type="button" asp-action="UpdateOrder"
-                        asp-route-id="@item.id">Update</a></button>
-                    }
+                        <a style="color: white;" type="button" asp-action="ViewOrderDetail" asp-route-id="@item.id">Details</a></button>
+                    <button class="btn btn-primary" style="margin-top: 0px;">
+                        <a style="color: white;" type="button" asp-action="UpdateOrder" asp-route-id="@item.id">Update</a></button>
                 </td>
             </tr>
         }

@@ -134,8 +134,8 @@ namespace FPTBook.Controllers
             string userId = GetUserId();
             var cart = lstCart.Where(c => c.user_id == userId).ToList();
             var user = _db.Users.Where(u => u.Id == userId).FirstOrDefault();
+
             var book = _db.Books.ToList();
-            
             foreach (var item in cart)
             {
                 var itemBook = book.Where(b => b.id == item.book_id).FirstOrDefault();
@@ -174,13 +174,9 @@ namespace FPTBook.Controllers
                     total = item.quantity * item.book.price
 
                 });
-                // var itemBook = book.Where(b => b.id == item.book_id).FirstOrDefault();
-                // itemBook.quantity = itemBook.quantity - item.quantity;
-                // if(itemBook.quantity == 0)
-                // {
-                //     itemBook.status = 0;
-                // }
-                // _db.Update(itemBook);
+                var itemBook = book.Where(b => b.id == item.book_id).FirstOrDefault();
+                itemBook.quantity = itemBook.quantity - item.quantity;
+                _db.Update(itemBook);
             }
             _db.SaveChanges();
 

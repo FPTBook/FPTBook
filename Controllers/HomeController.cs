@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using FPTBook.Models;
 using FPTBook.DB;
-using Microsoft.EntityFrameworkCore;
 
 namespace FPTBook.Controllers;
 
@@ -16,8 +15,9 @@ public class HomeController : Controller
     }
     public IActionResult Index()
     {
-        var ds = _db.Books.Include(b => b.category).ToList();
-        return View(ds);
+        var ds = _db.Books;
+        var lst = ds.Where(b => b.status == 1).ToList();
+        return View(lst);
     }
 
     public IActionResult Detail(int id)

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\UoG\\1670-Application Development\\FPTBook\\FPTBook.csproj": {}
+    "e:\\UoG\\1670-Application Development\\FPTBook\\FPTBook.csproj": {}
   },
   "projects": {
-    "E:\\UoG\\1670-Application Development\\FPTBook\\FPTBook.csproj": {
+    "e:\\UoG\\1670-Application Development\\FPTBook\\FPTBook.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\UoG\\1670-Application Development\\FPTBook\\FPTBook.csproj",
+        "projectUniqueName": "e:\\UoG\\1670-Application Development\\FPTBook\\FPTBook.csproj",
         "projectName": "FPTBook",
-        "projectPath": "E:\\UoG\\1670-Application Development\\FPTBook\\FPTBook.csproj",
+        "projectPath": "e:\\UoG\\1670-Application Development\\FPTBook\\FPTBook.csproj",
         "packagesPath": "C:\\Users\\luong\\.nuget\\packages\\",
-        "outputPath": "E:\\UoG\\1670-Application Development\\FPTBook\\obj\\",
+        "outputPath": "e:\\UoG\\1670-Application Development\\FPTBook\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

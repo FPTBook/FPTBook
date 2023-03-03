@@ -18499,11 +18499,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "e:\\UoG\\1670-Application Development\\FPTBook\\Views\\StoreOwner\\BestSellerBook.cshtml",
-      "TargetPath": "Views\\StoreOwner\\BestSellerBook.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "e:\\UoG\\1670-Application Development\\FPTBook\\Views\\Customer\\Update.cshtml",
       "TargetPath": "Views\\Customer\\Update.cshtml",
       "FileKind": "mvc"

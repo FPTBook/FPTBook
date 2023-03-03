@@ -24,7 +24,7 @@ namespace FPTBook.Controllers
         }
         public IActionResult ViewListBooks()
         {
-            var lstBook = _db.Books.Include(b => b.category).ToList();
+            var lstBook = _db.Books.ToList();
 
             return View(lstBook);
         }
@@ -73,17 +73,15 @@ namespace FPTBook.Controllers
         public IActionResult UpdateBook(int id)
         {
             var book = _db.Books.Find(id);
-            var categories = _db.Categories.Where(c => c.status == 1).ToList();
             ViewData["category_id"] = new
             // SelectList(_db.Categories, "Id", "Id", book.category_id)
-            SelectList(categories, "id", "name");
+            SelectList(_db.Categories, "id", "name");
             return View(book);
         }
 
         [HttpPost]
         public async Task<IActionResult> UpdateBook(IFormFile? img, Book book)
         {
-            var categories = _db.Categories.Where(c => c.status == 1).ToList();
             if (ModelState.IsValid)
             {
                 var filePaths = new List<string>();
@@ -113,7 +111,7 @@ namespace FPTBook.Controllers
                 }
 
             }
-            ViewData["category_id"] = new SelectList(categories, "id", "name");
+            ViewData["category_id"] = new SelectList(_db.Categories, "id", "name");
             return View(book);
         }
 
@@ -170,19 +168,6 @@ namespace FPTBook.Controllers
                 if (model.status == 1)
                 {
                     order.delivery_date = DateTime.Now;
-                    var od = _db.OrderDetails.Where(od => od.order_id == order.id).ToList();
-                    foreach (var item in od)
-                    {
-                        var book = _db.Books.Where(b => b.id == item.book_id).FirstOrDefault();
-                        book.quantity = book.quantity - item.book_quantity;
-                        if(book.quantity == 0)
-                        {
-                            book.status = 0;
-                        }
-                        _db.Update(book);
-                        
-                    }
-                    _db.SaveChanges();
                 }
 
                 if (model.status == 0)
@@ -228,7 +213,7 @@ namespace FPTBook.Controllers
                 _db.Add( new Category_Request{
                     user_id = user.Id,
                     user = user,
-                    description = category.name,
+                    description = "User with username " + username + " want to add new category with name is " + category.name,
                     date = DateTime.Now,
                     status = 0
                 });
@@ -262,28 +247,11 @@ namespace FPTBook.Controllers
         public IActionResult DeleteCategory(int id)
         {
             var category = _db.Categories.Find(id);
-            category.status = 3;
-            var books = _db.Books.Where(b => b.category_id == category.id).ToList();
-            foreach (var item in books)
-            {
-                item.status = 2;
-                _db.Update(item);
-            }
+            category.status = 0;
             _db.Update(category);
             _db.SaveChanges();
-            return RedirectToAction(nameof(ViewListCategories));
+            return View();
         }
 
-        public IActionResult BestSellerBook()
-        {
-            var order = _db.Orders.Where(o => o.status == 1).ToList();
-
-            var books = _db.Books.Include(b => b.category).Include(b => b.orders_detail).
-            Where(b => b.orders_detail.FirstOrDefault().order.status == 1).
-            OrderByDescending(b => b.orders_detail.Where(o => o.book_id == b.id && o.order.status == 1).
-            Sum(o => o.book_quantity)).ToList();
-            return View(books);
-        }
-        
     }
 }
