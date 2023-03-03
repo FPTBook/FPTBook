@@ -47,6 +47,12 @@ public class HomeController : Controller
         return View(books.ToList());
     }
 
+    public IActionResult Help()
+    {
+        return View();
+    }
+    
+
     public IActionResult AccessDenied()
     {
         return View();

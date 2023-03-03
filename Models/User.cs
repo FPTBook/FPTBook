@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
+using System.Text.RegularExpressions; 
 
 namespace FPTBook.Models
 {
@@ -14,6 +15,7 @@ namespace FPTBook.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         
         [Required]
+        [RegularExpression("^([^0-9]*)$", ErrorMessage = "Invalid Full Name.")]
         public string full_name { get; set; }
         [Required]
         public DateTime birthday { get; set; }
@@ -26,6 +28,12 @@ namespace FPTBook.Models
         [Required]
         [DefaultValue("customer")]
         public string Role { get; set; }
+        [Required]
+        [RegularExpression("^([0-9]{10})$", ErrorMessage = "Invalid Mobile Number.")]
+        public override string PhoneNumber { get => base.PhoneNumber; set => base.PhoneNumber = value; }
+        [Required]
+        [DataType(DataType.EmailAddress)]
+        public override string Email { get => base.Email; set => base.Email = value; }
         public virtual ICollection<Cart>? carts { get; set; }
         public virtual ICollection<Category_Request>? cat_requests { get; set; }
         public virtual ICollection<Order>? orders { get; set; }

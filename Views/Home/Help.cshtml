@@ -1,0 +1,57 @@
+@{
+    ViewData["Title"] = "Help";
+}
+<h1>@ViewData["Title"]</h1>
+<div class="row g-0">
+    <div class="col-sm-6 col-md-4">
+        <h2><br>Contacts<br><br></h2>
+        <h5>Phone: +84 0999 999 999<br><br><br></h5>
+        <h5>E-mail: fpt@gmail.com<br><br><br></h5>
+        <h5>Address: No. 160, 30/4 Street, An Phu Ward, Ninh Kieu District, Can Tho City, Vietnam<br><br><br></h5>
+    </div>
+    <div class="col-sm-6 col-md-8">
+        <h2><br>Common errors<br><br></h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Topic</th>
+                    <th scope="col">Question</th>
+                    <th scope="col">Answer</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider table-divider-color">
+                <tr>
+                    <td>Register</td>
+                    <td>How to enter the correct form of password?</td>
+                    <td>Password has minimum length 6 and must contain 1 Uppercase,1 lowercase, 1 special character and
+                        1 digit<br /> Example: Customer@123</td>
+                </tr>
+                <tr>
+                    <td>Login</td>
+                    <td>How can I Login?</td>
+                    <td>You must first register successfully. Then enter the correct account email and password you have
+                        registered.</td>
+                </tr>
+                <tr>
+                    <td>Order books</td>
+                    <td>How can I order?</td>
+                    <td>First, you have to add book to cart. Next, you need to click the "Checkout" button in cart, then click "Order" button.</td>
+                </tr>
+                <tr>
+                    <td>Profile</td>
+                    <td>How can I access to my profile?</td>
+                    <td>You must have to logged in then access to your profile. Or you can <a
+                            asp-route-id="@User.Identity.Name" asp-controller="Cart" asp-action="Index">click here</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Cart</td>
+                    <td>How can I access to my cart?</td>
+                    <td>You must have to logged in then access to your cart. Or you can <a
+                            asp-route-username="@User.Identity.Name" asp-controller="Customer"
+                            asp-action="Profile">click here</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

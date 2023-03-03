@@ -9,6 +9,7 @@ namespace FPTBook.Models.DTO
     public class RegistrationModel
     {
         [Required]
+        [RegularExpression("^([^0-9]*)$", ErrorMessage = "Invalid Full Name.")]
         public string Full_Name { get; set; }
         [Required]
         public string Username { get; set; }
@@ -19,6 +20,7 @@ namespace FPTBook.Models.DTO
         public string Gender { get; set; }
         [Required]
         [Phone]
+        [RegularExpression("^([0-9]{10})$", ErrorMessage = "Invalid Mobile Number.")]
         public string Phone { get; set; }
         [Required]
         public string Address { get; set; }
