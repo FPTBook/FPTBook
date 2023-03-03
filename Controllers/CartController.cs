@@ -174,13 +174,13 @@ namespace FPTBook.Controllers
                     total = item.quantity * item.book.price
 
                 });
-                // var itemBook = book.Where(b => b.id == item.book_id).FirstOrDefault();
-                // itemBook.quantity = itemBook.quantity - item.quantity;
-                // if(itemBook.quantity == 0)
-                // {
-                //     itemBook.status = 0;
-                // }
-                // _db.Update(itemBook);
+                var itemBook = book.Where(b => b.id == item.book_id).FirstOrDefault();
+                itemBook.quantity = itemBook.quantity - item.quantity;
+                if(itemBook.quantity == 0)
+                {
+                    itemBook.status = 0;
+                }
+                _db.Update(itemBook);
             }
             _db.SaveChanges();
 

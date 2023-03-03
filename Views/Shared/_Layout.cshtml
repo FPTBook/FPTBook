@@ -163,21 +163,21 @@
                                     asp-action="Profile">Account</a></li>
                             <li><a asp-route-username="@User.Identity.Name" asp-controller="Customer"
                                     asp-action="Profile">Record Orders</a></li>
-                            <li><a href="#">Other information</a></li>
+                            <li><a asp-controller="Home" asp-action="Help">Other information</a></li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="col-md-3 col-sm-6">
+                @* <div class="col-md-3 col-sm-6">
                     <div class="footer-menu">
                         <h2 class="footer-wid-title">Classify</h2>
                         <ul>
-                            @* <li><a href="#">Keyboards</a></li>
+                            <li><a href="#">Keyboards</a></li>
                             <li><a href="#">Gaming Mouse</a></li>
-                            <li><a href="#">Headphones</a></li> *@
+                            <li><a href="#">Headphones</a></li>
                         </ul>
                     </div>
-                </div>
+                </div> *@
             </div>
         </div>
     </div> <!-- End footer top area -->

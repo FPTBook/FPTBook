@@ -109,6 +109,13 @@ namespace FPTBook.Controllers
         public IActionResult CancelOrder(int id)
         {
             var order = _context.Orders.Find(id);
+            var orderDetail = _context.OrderDetails.Where(od => od.order_id == order.id).ToList();
+            foreach (var item in orderDetail)
+            {
+                var itemBook = _context.Books.ToList().Where(b => b.id == item.book_id).FirstOrDefault();
+                itemBook.quantity = itemBook.quantity + item.book_quantity;
+                _context.Update(itemBook);
+            }
             order.status = 2;
             _context.Update(order);
             _context.SaveChanges();
