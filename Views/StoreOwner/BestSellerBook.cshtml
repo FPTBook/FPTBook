@@ -1,9 +1,10 @@
 @model List<FPTBook.Models.Book>
 
 @{
-    ViewData["Title"] = "ViewListBooks";
+    ViewData["Title"] = "BestSellerBook";
 }
-<h1>Manage Book</h1>
+
+<h1>Bestseller Book</h1>
 <p>
     <button class="btn btn-primary"><a style="color: white;" asp-action="CreateBook">Add</a></button>
 </p>
@@ -11,18 +12,14 @@
     <thead>
         <tr>
             <th>Id</th>
-            <th>Cat_Id</th>
             <th>Name</th>
-            <th>Author</th>
-            <th>Date</th>
-            <th>Description</th>
-            <th>In Stock</th>
-            <th>Olde Price</th>
+            <th>Cat_Id</th>
             <th>Price</th>
+            <th>Olde Price</th>
+            <th>In Stock</th>
             <th>Image</th>
-            <th>Deleted</th>
+            <th>Quantity Sold</th>
             <th>Status</th>
-            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -41,24 +38,21 @@
             {
                 status = "Inactive";
             }
+            int sold = 0;
+            foreach (var book in item.orders_detail)
+            {
+                sold = sold + book.book_quantity;
+            }
             <tr>
                 <td>@item.id</td>
-                <td>@item.category.name</td>
                 <td>@item.name</td>
-                <td>@item.author</td>
-                <td>@item.date.ToString("dd/MM/yyyy")</td>
-                <td>@item.description</td>
-                <td>@item.quantity</td>
-                <td>@item.old_price</td>
+                <td>@item.category.name</td>
                 <td>@item.price</td>
+                <td>@item.old_price</td>
+                <td>@item.quantity</td>
                 <td style="width: 100px;"><img src="~/img/@item.image" alt="@item.name" style="width: auto;"></td>
-                <td>@item.is_deleted</td>
+                <td>@sold</td>
                 <td>@status</td>
-                <td>
-                    <a asp-action="UpdateBook" asp-route-id="@item.id">Update</a> |
-                    <a asp-action="DetailBook" asp-route-id="@item.id">Details</a> |
-                    <a asp-action="DeleteBook" asp-route-id="@item.id" onclick="return confirm('Are you sure about that?')">Delete</a>
-                </td>
             </tr>
         }
     </tbody>
