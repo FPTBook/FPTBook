@@ -29,7 +29,7 @@ namespace FPTBook.Models
         public double old_price { get; set; }
         [Required, Range(0, double.MaxValue)]
         public double price { get; set; }
-        // [Required]
+        [Required]
         public string image { get; set; } = "img";
         [DefaultValue(false)]
         public bool is_deleted { get; set;}

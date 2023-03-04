@@ -7,6 +7,12 @@
 <p>
     <button class="btn btn-primary"><a style="color: white;" asp-action="CreateBook">Add</a></button>
 </p>
+<div class="navbar-nav ms-auto pull-right">
+    <form asp-controller="StoreOwner" asp-action="ViewListBooks" class="d-flex w-auto" method="GET">
+        <input name="keyword" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" required>
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+</div>
 <table class="table">
     <thead>
         <tr>
@@ -37,7 +43,7 @@
             {
                 status = "On Sale";
             }
-            else if(item.status == 2)
+            else if (item.status == 2)
             {
                 status = "Inactive";
             }
@@ -57,7 +63,8 @@
                 <td>
                     <a asp-action="UpdateBook" asp-route-id="@item.id">Update</a> |
                     <a asp-action="DetailBook" asp-route-id="@item.id">Details</a> |
-                    <a asp-action="DeleteBook" asp-route-id="@item.id" onclick="return confirm('Are you sure about that?')">Delete</a>
+                    <a asp-action="DeleteBook" asp-route-id="@item.id"
+                        onclick="return confirm('Are you sure about that?')">Delete</a>
                 </td>
             </tr>
         }

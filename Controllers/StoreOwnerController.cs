@@ -29,6 +29,24 @@ namespace FPTBook.Controllers
             return View(lstBook);
         }
 
+        [HttpGet]
+        public IActionResult ViewListBooks(string keyword)
+        {
+            var lstBook = _db.Books.Include(b => b.category).ToList();
+            if (lstBook == null)
+            {
+                return NotFound();
+            }
+            var books = from b in _db.Books select b;
+            if (!String.IsNullOrEmpty(keyword))
+            {
+                books = books.Where(s => s.status == 1 && s.name!.Contains(keyword));
+            }
+
+            return View(books.ToList());
+        }
+
+
         public IActionResult CreateBook()
         {
             var categories = _db.Categories.Where(c => c.status == 1).ToList();
@@ -103,7 +121,8 @@ namespace FPTBook.Controllers
                     {
                         await img.CopyToAsync(stream);
                     }
-                    if(book.is_deleted){
+                    if (book.is_deleted)
+                    {
                         book.status = 2;
                     }
                     TempData["msg"] = "Updated successfully!";
@@ -180,7 +199,7 @@ namespace FPTBook.Controllers
                     //         book.status = 0;
                     //     }
                     //     _db.Update(book);
-                        
+
                     // }
                     // _db.SaveChanges();
                 }
@@ -196,7 +215,7 @@ namespace FPTBook.Controllers
             }
             return RedirectToAction(nameof(ViewListOrders));
         }
-          public IActionResult ViewOrderDetail(int id)
+        public IActionResult ViewOrderDetail(int id)
         {
             var lstOrderDetail = _db.OrderDetails.Include(od => od.book).Where(od => od.order_id == id).ToList();
             if (lstOrderDetail == null)
@@ -215,17 +234,19 @@ namespace FPTBook.Controllers
         {
             return View();
         }
-        
+
         [HttpPost]
         public IActionResult AddCategory(Category category, string username)
         {
-            if(ModelState.IsValid){
+            if (ModelState.IsValid)
+            {
                 category.status = 0;
                 _db.Add(category);
-                
+
 
                 var user = _db.Users.Where(u => u.UserName == username).FirstOrDefault();
-                _db.Add( new Category_Request{
+                _db.Add(new Category_Request
+                {
                     user_id = user.Id,
                     user = user,
                     description = category.name,
@@ -243,12 +264,12 @@ namespace FPTBook.Controllers
             var category = _db.Categories.Find(id);
             return View(category);
         }
-        
+
         [HttpPost]
         public async Task<IActionResult> UpdateCategory(Category model)
         {
             var category = _db.Categories.Find(model.id);
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 category.name = model.name;
                 category.description = model.description;
@@ -284,6 +305,6 @@ namespace FPTBook.Controllers
             Sum(o => o.book_quantity)).ToList();
             return View(books);
         }
-        
+
     }
 }
