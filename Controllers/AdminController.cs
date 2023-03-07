@@ -41,7 +41,7 @@ namespace FPTBook.Controllers
         {
             var obj = _db.Category_Requests.Find(id);
             obj.status = 1;
-            var cate = _db.Categories.Where(c => c.name == obj.description).FirstOrDefault();
+            var cate = _db.Categories.Where(c => c.name == obj.name).FirstOrDefault();
             cate.status = 1;
             _db.Update(cate);
             _db.Update(obj);
@@ -53,7 +53,7 @@ namespace FPTBook.Controllers
         {
             var obj = _db.Category_Requests.Find(id);
             obj.status = 1;
-            var cate = _db.Categories.Where(c => c.name == obj.description).FirstOrDefault();
+            var cate = _db.Categories.Where(c => c.name == obj.name).FirstOrDefault();
             cate.status = 2;
             _db.Update(cate);
             _db.Update(obj);

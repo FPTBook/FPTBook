@@ -251,7 +251,7 @@ namespace FPTBook.Controllers
                 {
                     user_id = user.Id,
                     user = user,
-                    description = category.name,
+                    name = category.name,
                     date = DateTime.Now,
                     status = 0
                 });

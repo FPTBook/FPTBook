@@ -16,7 +16,7 @@ namespace FPTBook.Models
         public string user_id { get; set; }
         [ForeignKey("user_id")]
         public virtual User? user { get; set; }
-        public string description { get; set; }
+        public string name { get; set; }
         public DateTime date { get; set; }
         [DefaultValue(0), Range(0,2)]
         public int status { get; set; }
