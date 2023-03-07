@@ -15,13 +15,18 @@ namespace FPTBook.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         
         [Required]
+        [StringLength(30)]
         [RegularExpression("^([^0-9]*)$", ErrorMessage = "Invalid Full Name.")]
         public string full_name { get; set; }
+        [Required]
+        [StringLength(20)]
+        public override string UserName { get => base.UserName; set => base.UserName = value; }
         [Required]
         public DateTime birthday { get; set; }
         [Required]
         public string gender { get; set; }
         [Required]
+        [StringLength(200)]
         public string address { get; set; }
         [DefaultValue(1), Range(0,2)]
         public int status { get; set; }

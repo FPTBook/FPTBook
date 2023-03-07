@@ -67,6 +67,7 @@ namespace FPTBook.Controllers
                     if (fileType != ".jpg" && fileType != ".png")
                     {
                         TempData["msg"] = "File Format Not Supported. Only .jpg and .png !";
+                        ViewData["category_id"] = new SelectList(categories, "id", "name");
                         return View(book);
                     }
 
@@ -111,6 +112,7 @@ namespace FPTBook.Controllers
                     if (fileType != ".jpg" && fileType != ".png")
                     {
                         TempData["msg"] = "File Format Not Supported. Only .jpg and .png !";
+                        ViewData["category_id"] = new SelectList(categories, "id", "name");
                         return View(book);
                     }
 

@@ -57,6 +57,10 @@
       "PackagePath": "staticwebassets\\img\\br1.jpg"
     },
     {
+      "Id": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\img\\esp2.png",
+      "PackagePath": "staticwebassets\\img\\esp2.png"
+    },
+    {
       "Id": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\img\\harry_potter_and_the_deathly_hallows.jpg",
       "PackagePath": "staticwebassets\\img\\harry_potter_and_the_deathly_hallows.jpg"
     },

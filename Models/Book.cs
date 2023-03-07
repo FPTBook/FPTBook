@@ -17,17 +17,21 @@ namespace FPTBook.Models
         [ForeignKey("category_id")]
         public virtual Category? category { get; set; }
         [Required]
+        [StringLength(30)]
         public string name { get; set; }
         [Required]
+        [StringLength(30)]
         public string author { get; set; }
+        [Required]
         public DateTime date { get; set; }
         [Required]
+        [StringLength(200)]
         public string description { get; set; }
-        [Required, Range(0, int.MaxValue)]
+        [Required, Range(1, 100000)]
         public int quantity { get; set; }
-        [Required, Range(0, double.MaxValue)]
+        [Required, Range(1.0, 100000.0)]
         public double old_price { get; set; }
-        [Required, Range(0, double.MaxValue)]
+        [Required, Range(1.0, 100000.0)]
         public double price { get; set; }
         [Required]
         public string image { get; set; } = "img";

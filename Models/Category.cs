@@ -13,8 +13,10 @@ namespace FPTBook.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
         [Required]
+        [StringLength(30)]
         public string name { get; set; }
         [Required]
+        [StringLength(100)]
         public string description { get; set; }
         public int? status { get; set; }
         public virtual ICollection<Book>? books { get; set;}

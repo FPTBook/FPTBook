@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "stdnk675HDNQ/YZuyDlkDy9Vp/zh5ScDWW1zRVDzwoI=",
+  "Hash": "JUSjNHqNFy/VYUi8U9C5qDYSCu6YfS4eyG65tPo0uY4=",
   "Source": "FPTBook",
   "BasePath": "_content/FPTBook",
   "Mode": "Default",
@@ -1256,6 +1256,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\br1.jpg"
+    },
+    {
+      "Identity": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\img\\esp2.png",
+      "SourceId": "FPTBook",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\",
+      "BasePath": "_content/FPTBook",
+      "RelativePath": "img/esp2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\esp2.png"
     },
     {
       "Identity": "E:\\UoG\\1670-Application Development\\FPTBook\\wwwroot\\img\\harry_potter_and_the_deathly_hallows.jpg",
