@@ -4,6 +4,7 @@ using FPTBook.DB;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FPTBook.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230307101905_init4")]
+    partial class init4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -71,7 +73,7 @@ namespace FPTBook.Migrations
 
                     b.HasIndex("category_id");
 
-                    b.ToTable("Books", (string)null);
+                    b.ToTable("Books");
                 });
 
             modelBuilder.Entity("FPTBook.Models.Cart", b =>
@@ -101,7 +103,7 @@ namespace FPTBook.Migrations
 
                     b.HasIndex("user_id");
 
-                    b.ToTable("Carts", (string)null);
+                    b.ToTable("Carts");
                 });
 
             modelBuilder.Entity("FPTBook.Models.Category", b =>
@@ -125,7 +127,7 @@ namespace FPTBook.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("FPTBook.Models.Category_Request", b =>
@@ -154,7 +156,7 @@ namespace FPTBook.Migrations
 
                     b.HasIndex("user_id");
 
-                    b.ToTable("Category_Requests", (string)null);
+                    b.ToTable("Category_Requests");
                 });
 
             modelBuilder.Entity("FPTBook.Models.Order", b =>
@@ -189,7 +191,7 @@ namespace FPTBook.Migrations
 
                     b.HasIndex("user_id");
 
-                    b.ToTable("Orders", (string)null);
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("FPTBook.Models.OrderDetail", b =>
@@ -221,7 +223,7 @@ namespace FPTBook.Migrations
 
                     b.HasIndex("order_id");
 
-                    b.ToTable("OrderDetails", (string)null);
+                    b.ToTable("OrderDetails");
                 });
 
             modelBuilder.Entity("FPTBook.Models.User", b =>

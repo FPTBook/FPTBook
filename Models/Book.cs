@@ -17,15 +17,12 @@ namespace FPTBook.Models
         [ForeignKey("category_id")]
         public virtual Category? category { get; set; }
         [Required]
-        [StringLength(30)]
         public string name { get; set; }
         [Required]
-        [StringLength(30)]
         public string author { get; set; }
         [Required]
         public DateTime date { get; set; }
         [Required]
-        [StringLength(200)]
         public string description { get; set; }
         [Required, Range(1, 100000)]
         public int quantity { get; set; }
@@ -41,6 +38,5 @@ namespace FPTBook.Models
         public int status { get; set; }
         public virtual ICollection<Cart>? carts { get; set; }
         public virtual ICollection<OrderDetail>? orders_detail { get; set; }
-
     }
 }
