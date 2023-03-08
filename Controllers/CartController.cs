@@ -48,7 +48,7 @@ namespace FPTBook.Controllers
             }
 
             var lstCart = GetLstCart();
-            var cartItem = lstCart.Find(b => b.book_id == book_id);
+            var cartItem = lstCart.Find(b => b.book_id == book_id && b.user_id == userId);
             if (cartItem != null)
             {
                 cartItem.quantity = cartItem.quantity + model.quantity;
@@ -82,7 +82,7 @@ namespace FPTBook.Controllers
             }
 
             var lstCart = GetLstCart();
-            var cartItem = lstCart.Find(b => b.book_id == book_id);
+            var cartItem = lstCart.Find(b => b.book_id == book_id && b.user_id == userId);
             if (cartItem != null)
             {
                 cartItem.quantity++;
